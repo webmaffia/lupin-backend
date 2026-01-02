@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investors_updates",
+  "info": {
+    "singularName": "investors-update",
+    "pluralName": "investors-updates",
+    "displayName": "Investors Update Subscribers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    }
+  }
+}

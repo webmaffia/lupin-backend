@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_news_cards",
+  "info": {
+    "displayName": "NEWS Card"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "text"
+    },
+    "circleInner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

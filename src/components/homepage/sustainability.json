@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_sustainabilities",
+  "info": {
+    "displayName": "Sustainability"
+  },
+  "options": {},
+  "attributes": {
+    "sectionData": {
+      "type": "component",
+      "component": "homepage.section",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

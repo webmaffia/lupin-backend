@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_our_businesses",
+  "info": {
+    "displayName": "Our Business"
+  },
+  "options": {},
+  "attributes": {
+    "sectionData": {
+      "type": "component",
+      "component": "homepage.section",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

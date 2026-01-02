@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_homepage_over_views",
+  "info": {
+    "displayName": "overView"
+  },
+  "options": {},
+  "attributes": {
+    "sectionData": {
+      "type": "component",
+      "component": "homepage.section",
+      "repeatable": false
+    },
+    "stats": {
+      "type": "component",
+      "component": "homepage.stats",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

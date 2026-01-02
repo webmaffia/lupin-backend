@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_news",
+  "info": {
+    "displayName": "News"
+  },
+  "options": {},
+  "attributes": {
+    "titile": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "shared.news-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

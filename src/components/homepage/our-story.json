@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_our_stories",
+  "info": {
+    "displayName": "Our Story"
+  },
+  "options": {},
+  "attributes": {
+    "sectionData": {
+      "type": "component",
+      "component": "homepage.section",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_homepage_stats",
+  "info": {
+    "displayName": "Stats"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

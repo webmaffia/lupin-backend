@@ -430,6 +430,102 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
+  collectionName: 'homepages';
+  info: {
+    displayName: 'Homepage';
+    pluralName: 'homepages';
+    singularName: 'homepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    csr: Schema.Attribute.Component<'homepage.csr', false>;
+    hero: Schema.Attribute.Component<'homepage.hero', false>;
+    life: Schema.Attribute.Component<'homepage.life', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homepage.homepage'
+    > &
+      Schema.Attribute.Private;
+    news: Schema.Attribute.Component<'homepage.news', false>;
+    ourBusiness: Schema.Attribute.Component<'homepage.our-business', false>;
+    ourPurpose: Schema.Attribute.Component<'homepage.our-purpose', false>;
+    ourStory: Schema.Attribute.Component<'homepage.our-story', false>;
+    overView: Schema.Attribute.Component<'homepage.over-view', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    sustainability: Schema.Attribute.Component<
+      'homepage.sustainability',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorsFaqInvestorsFaq
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investors_faqs';
+  info: {
+    displayName: 'Investors Faqs';
+    pluralName: 'investors-faqs';
+    singularName: 'investors-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investors-faq.investors-faq'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorsUpdateInvestorsUpdate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investors_updates';
+  info: {
+    displayName: 'Investors Update Subscribers';
+    pluralName: 'investors-updates';
+    singularName: 'investors-update';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investors-update.investors-update'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -940,6 +1036,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::homepage.homepage': ApiHomepageHomepage;
+      'api::investors-faq.investors-faq': ApiInvestorsFaqInvestorsFaq;
+      'api::investors-update.investors-update': ApiInvestorsUpdateInvestorsUpdate;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
