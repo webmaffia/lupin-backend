@@ -1,0 +1,114 @@
+trigger:
+  branches:
+    include:
+      - dev-backend
+      - uat
+      - main
+
+variables:
+  azureServiceConnection: 'RG-Lupin-CI-SC'   
+  nodeVersion: '20.x'
+  uatWebAppName: 'cms-lupin-uat'
+
+stages:
+
+# =========================
+# BUILD STAGE
+# =========================
+- stage: Build
+  displayName: Build Strapi Backend
+  jobs:
+    - job: BuildJob
+      pool:
+        vmImage: ubuntu-latest
+      steps:
+
+        - task: NodeTool@0
+          displayName: Use Node.js $(nodeVersion)
+          inputs:
+            versionSpec: '$(nodeVersion)'
+
+        # -------------------------
+        # CodeQL Init
+        # -------------------------
+        - task: AdvancedSecurity-Codeql-Init@1
+          displayName: Initialize CodeQL
+          inputs:
+            languages: 'javascript'
+            querysuite: 'security-and-quality'
+            configfilepath: '$(Build.SourcesDirectory)/.github/codeql/codeql-config.yml'
+
+        - task: AdvancedSecurity-Dependency-Scanning@1
+          displayName: Advanced Dependency Scan
+
+        # -------------------------
+        # Install + Build (CI ONLY)
+        # -------------------------
+        - script: |
+            npm ci
+            npm run build
+          displayName: Install dependencies & build Strapi
+
+        # -------------------------
+        # CodeQL Analyze
+        # -------------------------
+        - task: AdvancedSecurity-Codeql-Analyze@1
+          displayName: Run CodeQL Analysis
+
+        # -------------------------
+        # Create Deployment ZIP
+        # -------------------------
+        - task: ArchiveFiles@2
+          displayName: Create deployment zip
+          inputs:
+            rootFolderOrFile: '$(Build.SourcesDirectory)'
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: '$(Build.ArtifactStagingDirectory)/backend.zip'
+            replaceExistingArchive: true
+            excludePatterns: |
+              **/.git/**
+              **/.github/**
+              **/.cache/**
+              **/node_modules/**
+              **/.env
+
+        # -------------------------
+        # Publish Artifact
+        # -------------------------
+        - task: PublishBuildArtifacts@1
+          displayName: Publish build artifact
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)/backend.zip'
+            ArtifactName: drop
+
+# =========================
+# DEPLOY TO UAT
+# =========================
+- stage: Deploy_UAT
+  displayName: Deploy to UAT
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
+
+  variables:
+    - group: var-group-uat   # OPTIONAL: Create this variable group in Azure DevOps OR remove this block
+
+  jobs:
+    - deployment: DeployUAT
+      displayName: Deploy Strapi to Azure UAT
+      environment: uat
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - download: current
+                artifact: drop
+
+              - task: AzureWebApp@1
+                displayName: Deploy to Azure Web App (UAT)
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  appType: webAppLinux
+                  appName: '$(uatWebAppName)'
+                  package: '$(Pipeline.Workspace)/drop/backend.zip'
+                  startUpCommand: 'npm start'
