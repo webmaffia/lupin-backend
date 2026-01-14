@@ -6,7 +6,7 @@ trigger:
       - main
 
 variables:
-  azureServiceConnection: 'RG-Lupin-CI-SC'   
+  azureServiceConnection: 'RG-Lupin-CI-SC'
   nodeVersion: '20.x'
   uatWebAppName: 'cms-lupin-uat'
 
@@ -42,12 +42,11 @@ stages:
           displayName: Advanced Dependency Scan
 
         # -------------------------
-        # Install + Build (CI ONLY)
+        # Install ONLY (NO BUILD in CI)
         # -------------------------
         - script: |
             npm ci
-            npm run build
-          displayName: Install dependencies & build Strapi
+          displayName: Install dependencies (CI)
 
         # -------------------------
         # CodeQL Analyze
@@ -90,8 +89,9 @@ stages:
   dependsOn: Build
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
 
+  # If variable group exists, keep it. Otherwise remove it.
   variables:
-    - group: var-group-uat   # OPTIONAL: Create this variable group in Azure DevOps OR remove this block
+    - group: var-group-uat
 
   jobs:
     - deployment: DeployUAT
@@ -111,4 +111,4 @@ stages:
                   appType: webAppLinux
                   appName: '$(uatWebAppName)'
                   package: '$(Pipeline.Workspace)/drop/backend.zip'
-                  startUpCommand: 'npm start'
+                  startUpCommand: 'node node_modules/@strapi/strapi/bin/strapi.js start'
