@@ -2,7 +2,6 @@ trigger:
   branches:
     include:
       - uat
-      - main
 
 pr: none
 
@@ -16,9 +15,9 @@ variables:
 
 stages:
 
-# =========================
+# =========================================================
 # BUILD STAGE
-# =========================
+# =========================================================
 - stage: Build
   displayName: Build + Security Scan (Strapi)
   jobs:
@@ -36,6 +35,7 @@ stages:
           inputs:
             versionSpec: '$(nodeVersion)'
 
+        # CodeQL Init
         - task: AdvancedSecurity-Codeql-Init@1
           displayName: Initialize CodeQL
           inputs:
@@ -46,14 +46,17 @@ stages:
         - task: AdvancedSecurity-Dependency-Scanning@1
           displayName: Dependency Scanning
 
+        # Install + Build
         - script: |
             npm ci
             npm run build
           displayName: Install dependencies & build Strapi
 
+        # CodeQL Analyze
         - task: AdvancedSecurity-Codeql-Analyze@1
           displayName: Run CodeQL Analysis
 
+        # Create ZIP for deployment
         - task: ArchiveFiles@2
           displayName: Create deployment ZIP
           inputs:
@@ -77,13 +80,13 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(zipName)'
             ArtifactName: '$(artifactName)'
 
-# =========================
+# =========================================================
 # DEPLOY TO UAT
-# =========================
+# =========================================================
 - stage: Deploy_UAT
   displayName: Deploy to UAT (Strapi)
   dependsOn: Build
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
+  condition: succeeded()
 
   variables:
     - group: var-group-uat
@@ -112,7 +115,7 @@ stages:
                       --src "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
 
               - task: AzureCLI@2
-                displayName: Configure UAT Startup + App Settings
+                displayName: Configure UAT App Settings + Startup
                 inputs:
                   azureSubscription: '$(azureServiceConnection)'
                   scriptType: bash
