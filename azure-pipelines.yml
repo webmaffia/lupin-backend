@@ -1,27 +1,45 @@
 trigger:
   branches:
     include:
-      - dev-backend
       - uat
       - main
 
+pr: none
+
 variables:
+  # Azure Service Connection Name (Azure DevOps -> Project Settings -> Service connections)
   azureServiceConnection: 'RG-Lupin-CI-SC'
-  nodeVersion: '20.x'
+
+  # Resource Group
+  resourceGroupName: 'RG-Lupin-CI'
+
+  # Web Apps
   uatWebAppName: 'cms-lupin-uat'
+  prodWebAppName: 'cms-lupin-prd'
+
+  # Node Version
+  nodeVersion: '20.x'
+
+  # Artifact
+  artifactName: 'drop'
+  zipName: 'backend.zip'
 
 stages:
 
-# =========================
+# =========================================================
 # BUILD STAGE
-# =========================
+# =========================================================
 - stage: Build
-  displayName: Build Strapi Backend
+  displayName: Build + Security Scan (Strapi)
   jobs:
     - job: BuildJob
+      displayName: Build Job
       pool:
         vmImage: ubuntu-latest
+
       steps:
+        - checkout: self
+          clean: true
 
         - task: NodeTool@0
           displayName: Use Node.js $(nodeVersion)
@@ -38,15 +56,19 @@ stages:
             querysuite: 'security-and-quality'
             configfilepath: '$(Build.SourcesDirectory)/.github/codeql/codeql-config.yml'
 
+        # -------------------------
+        # Dependency Scan
+        # -------------------------
         - task: AdvancedSecurity-Dependency-Scanning@1
-          displayName: Advanced Dependency Scan
+          displayName: Dependency Scanning
 
         # -------------------------
-        # Install ONLY (NO BUILD in CI)
+        # Install + Build
         # -------------------------
         - script: |
             npm ci
-          displayName: Install dependencies (CI)
+            npm run build
+          displayName: Install dependencies & build Strapi
 
         # -------------------------
         # CodeQL Analyze
@@ -55,15 +77,15 @@ stages:
           displayName: Run CodeQL Analysis
 
         # -------------------------
-        # Create Deployment ZIP
+        # Create ZIP for deployment
         # -------------------------
         - task: ArchiveFiles@2
-          displayName: Create deployment zip
+          displayName: Create deployment ZIP
           inputs:
             rootFolderOrFile: '$(Build.SourcesDirectory)'
             includeRootFolder: false
             archiveType: zip
-            archiveFile: '$(Build.ArtifactStagingDirectory)/backend.zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(zipName)'
             replaceExistingArchive: true
             excludePatterns: |
               **/.git/**
@@ -71,44 +93,151 @@ stages:
               **/.cache/**
               **/node_modules/**
               **/.env
+              **/.env.*
+              **/*.log
 
-        # -------------------------
-        # Publish Artifact
-        # -------------------------
         - task: PublishBuildArtifacts@1
-          displayName: Publish build artifact
+          displayName: Publish Artifact
           inputs:
-            PathtoPublish: '$(Build.ArtifactStagingDirectory)/backend.zip'
-            ArtifactName: drop
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(zipName)'
+            ArtifactName: '$(artifactName)'
 
-# =========================
+# =========================================================
 # DEPLOY TO UAT
-# =========================
+# =========================================================
 - stage: Deploy_UAT
-  displayName: Deploy to UAT
+  displayName: Deploy to UAT (Strapi)
   dependsOn: Build
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
 
-  # If variable group exists, keep it. Otherwise remove it.
   variables:
     - group: var-group-uat
 
   jobs:
     - deployment: DeployUAT
-      displayName: Deploy Strapi to Azure UAT
+      displayName: Deploy CMS to UAT Web App
       environment: uat
       strategy:
         runOnce:
           deploy:
             steps:
               - download: current
-                artifact: drop
+                artifact: $(artifactName)
 
-              - task: AzureWebApp@1
-                displayName: Deploy to Azure Web App (UAT)
+              # Deploy ZIP to Azure Web App
+              - task: AzureCLI@2
+                displayName: Deploy Code to UAT (ZipDeploy)
                 inputs:
                   azureSubscription: '$(azureServiceConnection)'
-                  appType: webAppLinux
-                  appName: '$(uatWebAppName)'
-                  package: '$(Pipeline.Workspace)/drop/backend.zip'
-                  startUpCommand: 'node node_modules/@strapi/strapi/bin/strapi.js start'
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: |
+                    az webapp deployment source config-zip \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(uatWebAppName)" \
+                      --src "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
+
+              # Configure App Settings + Startup Command
+              - task: AzureCLI@2
+                displayName: Configure UAT App Settings
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: |
+                    # Startup command for Strapi
+                    az webapp config set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(uatWebAppName)" \
+                      --startup-file "node node_modules/@strapi/strapi/bin/strapi.js start"
+
+                    # App Settings (from var-group-uat)
+                    az webapp config appsettings set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(uatWebAppName)" \
+                      --settings \
+                      NODE_ENV="$(NODE_ENV)" \
+                      HOST="$(HOST)" \
+                      PORT="$(PORT)" \
+                      WEBSITES_PORT="$(WEBSITES_PORT)" \
+                      DATABASE_CLIENT="$(DATABASE_CLIENT)" \
+                      DATABASE_HOST="$(DATABASE_HOST)" \
+                      DATABASE_PORT="$(DATABASE_PORT)" \
+                      DATABASE_NAME="$(DATABASE_NAME)" \
+                      DATABASE_USERNAME="$(DATABASE_USERNAME)" \
+                      DATABASE_PASSWORD="$(DATABASE_PASSWORD)" \
+                      DATABASE_SSL="$(DATABASE_SSL)" \
+                      APP_KEYS="$(APP_KEYS)" \
+                      API_TOKEN_SALT="$(API_TOKEN_SALT)" \
+                      ADMIN_JWT_SECRET="$(ADMIN_JWT_SECRET)" \
+                      JWT_SECRET="$(JWT_SECRET)" \
+                      TRANSFER_TOKEN_SALT="$(TRANSFER_TOKEN_SALT)" \
+                      ENCRYPTION_KEY="$(ENCRYPTION_KEY)"
+
+# =========================================================
+# DEPLOY TO PROD
+# =========================================================
+- stage: Deploy_Prod
+  displayName: Deploy to Production (Strapi)
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+
+  variables:
+    - group: var-group-prod
+
+  jobs:
+    - deployment: DeployProd
+      displayName: Deploy CMS to PROD Web App
+      environment: prod
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - download: current
+                artifact: $(artifactName)
+
+              - task: AzureCLI@2
+                displayName: Deploy Code to PROD (ZipDeploy)
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: |
+                    az webapp deployment source config-zip \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --src "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
+
+              - task: AzureCLI@2
+                displayName: Configure PROD App Settings
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: |
+                    az webapp config set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --startup-file "node node_modules/@strapi/strapi/bin/strapi.js start"
+
+                    az webapp config appsettings set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --settings \
+                      NODE_ENV="$(NODE_ENV)" \
+                      HOST="$(HOST)" \
+                      PORT="$(PORT)" \
+                      WEBSITES_PORT="$(WEBSITES_PORT)" \
+                      DATABASE_CLIENT="$(DATABASE_CLIENT)" \
+                      DATABASE_HOST="$(DATABASE_HOST)" \
+                      DATABASE_PORT="$(DATABASE_PORT)" \
+                      DATABASE_NAME="$(DATABASE_NAME)" \
+                      DATABASE_USERNAME="$(DATABASE_USERNAME)" \
+                      DATABASE_PASSWORD="$(DATABASE_PASSWORD)" \
+                      DATABASE_SSL="$(DATABASE_SSL)" \
+                      APP_KEYS="$(APP_KEYS)" \
+                      API_TOKEN_SALT="$(API_TOKEN_SALT)" \
+                      ADMIN_JWT_SECRET="$(ADMIN_JWT_SECRET)" \
+                      JWT_SECRET="$(JWT_SECRET)" \
+                      TRANSFER_TOKEN_SALT="$(TRANSFER_TOKEN_SALT)" \
+                      ENCRYPTION_KEY="$(ENCRYPTION_KEY)"
