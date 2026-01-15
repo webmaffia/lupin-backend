@@ -1,41 +1,41 @@
 trigger:
   branches:
     include:
+      - dev-backend
       - uat
+      - main
 
 pr: none
 
 variables:
-  azureServiceConnection: 'RG-Lupin-CI-SC'
+  azureServiceConnection: 'lupinglobal-sc'
   resourceGroupName: 'RG-Lupin-CI'
-  uatWebAppName: 'cms-lupin-uat'
   nodeVersion: '20.x'
   artifactName: 'drop'
-  zipName: 'backend.zip'
+
+  uatWebAppName: 'cms-lupin-uat'
+  prodWebAppName: 'cms-lupin-prd'
 
 stages:
 
-# =========================================================
-# BUILD STAGE
-# =========================================================
+# =========================
+# BUILD
+# =========================
 - stage: Build
-  displayName: Build + Security Scan (Strapi)
+  displayName: Build Backend (CMS)
   jobs:
     - job: BuildJob
-      displayName: Build Job
       pool:
         vmImage: ubuntu-latest
-
       steps:
         - checkout: self
           clean: true
 
         - task: NodeTool@0
-          displayName: Use Node.js $(nodeVersion)
           inputs:
             versionSpec: '$(nodeVersion)'
+          displayName: Use Node.js $(nodeVersion)
 
-        # CodeQL Init
         - task: AdvancedSecurity-Codeql-Init@1
           displayName: Initialize CodeQL
           inputs:
@@ -46,54 +46,55 @@ stages:
         - task: AdvancedSecurity-Dependency-Scanning@1
           displayName: Dependency Scanning
 
-        # Install + Build
         - script: |
-            npm ci
+            set -e
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
             npm run build
-          displayName: Install dependencies & build Strapi
+          displayName: Install & Build
+          env:
+            CI: "true"
 
-        # CodeQL Analyze
         - task: AdvancedSecurity-Codeql-Analyze@1
           displayName: Run CodeQL Analysis
 
-        # Create ZIP for deployment
         - task: ArchiveFiles@2
-          displayName: Create deployment ZIP
+          displayName: Create deployment zip
           inputs:
             rootFolderOrFile: '$(Build.SourcesDirectory)'
             includeRootFolder: false
             archiveType: zip
-            archiveFile: '$(Build.ArtifactStagingDirectory)/$(zipName)'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/backend.zip'
             replaceExistingArchive: true
             excludePatterns: |
               **/.git/**
               **/.github/**
-              **/.cache/**
-              **/node_modules/**
               **/.env
               **/.env.*
               **/*.log
+              **/coverage/**
 
         - task: PublishBuildArtifacts@1
-          displayName: Publish Artifact
+          displayName: Publish artifact
           inputs:
-            PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(zipName)'
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)/backend.zip'
             ArtifactName: '$(artifactName)'
 
-# =========================================================
-# DEPLOY TO UAT
-# =========================================================
+# =========================
+# DEPLOY UAT
+# =========================
 - stage: Deploy_UAT
-  displayName: Deploy to UAT (Strapi)
+  displayName: Deploy to UAT
   dependsOn: Build
-  condition: succeeded()
-
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
   variables:
     - group: var-group-uat
-
   jobs:
     - deployment: DeployUAT
-      displayName: Deploy CMS to UAT Web App
+      displayName: Deploy CMS to UAT
       environment: uat
       strategy:
         runOnce:
@@ -103,24 +104,27 @@ stages:
                 artifact: $(artifactName)
 
               - task: AzureCLI@2
-                displayName: Deploy Code to UAT (ZipDeploy)
+                displayName: Deploy Code (ZipDeploy)
                 inputs:
                   azureSubscription: '$(azureServiceConnection)'
-                  scriptType: bash
-                  scriptLocation: inlineScript
+                  scriptType: 'bash'
+                  scriptLocation: 'inlineScript'
                   inlineScript: |
+                    set -e
                     az webapp deployment source config-zip \
                       --resource-group "$(resourceGroupName)" \
                       --name "$(uatWebAppName)" \
-                      --src "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
+                      --src "$(Pipeline.Workspace)/$(artifactName)/backend.zip"
 
               - task: AzureCLI@2
-                displayName: Configure UAT App Settings + Startup
+                displayName: Configure Startup + App Settings
                 inputs:
                   azureSubscription: '$(azureServiceConnection)'
-                  scriptType: bash
-                  scriptLocation: inlineScript
+                  scriptType: 'bash'
+                  scriptLocation: 'inlineScript'
                   inlineScript: |
+                    set -e
+
                     az webapp config set \
                       --resource-group "$(resourceGroupName)" \
                       --name "$(uatWebAppName)" \
@@ -130,10 +134,10 @@ stages:
                       --resource-group "$(resourceGroupName)" \
                       --name "$(uatWebAppName)" \
                       --settings \
+                      WEBSITES_PORT="$(WEBSITES_PORT)" \
                       NODE_ENV="$(NODE_ENV)" \
                       HOST="$(HOST)" \
                       PORT="$(PORT)" \
-                      WEBSITES_PORT="$(WEBSITES_PORT)" \
                       DATABASE_CLIENT="$(DATABASE_CLIENT)" \
                       DATABASE_HOST="$(DATABASE_HOST)" \
                       DATABASE_PORT="$(DATABASE_PORT)" \
@@ -144,6 +148,73 @@ stages:
                       APP_KEYS="$(APP_KEYS)" \
                       API_TOKEN_SALT="$(API_TOKEN_SALT)" \
                       ADMIN_JWT_SECRET="$(ADMIN_JWT_SECRET)" \
-                      JWT_SECRET="$(JWT_SECRET)" \
                       TRANSFER_TOKEN_SALT="$(TRANSFER_TOKEN_SALT)" \
-                      ENCRYPTION_KEY="$(ENCRYPTION_KEY)"
+                      JWT_SECRET="$(JWT_SECRET)"
+
+# =========================
+# DEPLOY PROD
+# =========================
+- stage: Deploy_Prod
+  displayName: Deploy to Production
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  variables:
+    - group: var-group-prod
+  jobs:
+    - deployment: DeployProd
+      displayName: Deploy CMS to Production
+      environment: prod
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - download: current
+                artifact: $(artifactName)
+
+              - task: AzureCLI@2
+                displayName: Deploy Code (ZipDeploy)
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  scriptType: 'bash'
+                  scriptLocation: 'inlineScript'
+                  inlineScript: |
+                    set -e
+                    az webapp deployment source config-zip \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --src "$(Pipeline.Workspace)/$(artifactName)/backend.zip"
+
+              - task: AzureCLI@2
+                displayName: Configure Startup + App Settings
+                inputs:
+                  azureSubscription: '$(azureServiceConnection)'
+                  scriptType: 'bash'
+                  scriptLocation: 'inlineScript'
+                  inlineScript: |
+                    set -e
+
+                    az webapp config set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --startup-file "node node_modules/@strapi/strapi/bin/strapi.js start"
+
+                    az webapp config appsettings set \
+                      --resource-group "$(resourceGroupName)" \
+                      --name "$(prodWebAppName)" \
+                      --settings \
+                      WEBSITES_PORT="$(WEBSITES_PORT)" \
+                      NODE_ENV="$(NODE_ENV)" \
+                      HOST="$(HOST)" \
+                      PORT="$(PORT)" \
+                      DATABASE_CLIENT="$(DATABASE_CLIENT)" \
+                      DATABASE_HOST="$(DATABASE_HOST)" \
+                      DATABASE_PORT="$(DATABASE_PORT)" \
+                      DATABASE_NAME="$(DATABASE_NAME)" \
+                      DATABASE_USERNAME="$(DATABASE_USERNAME)" \
+                      DATABASE_PASSWORD="$(DATABASE_PASSWORD)" \
+                      DATABASE_SSL="$(DATABASE_SSL)" \
+                      APP_KEYS="$(APP_KEYS)" \
+                      API_TOKEN_SALT="$(API_TOKEN_SALT)" \
+                      ADMIN_JWT_SECRET="$(ADMIN_JWT_SECRET)" \
+                      TRANSFER_TOKEN_SALT="$(TRANSFER_TOKEN_SALT)" \
+                      JWT_SECRET="$(JWT_SECRET)"
