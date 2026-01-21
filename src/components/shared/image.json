@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_shared_images",
+  "info": {
+    "displayName": "InnerBanner"
+  },
+  "options": {},
+  "attributes": {
+    "DesktopImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Heading": {
+      "type": "text"
+    },
+    "SubHeading": {
+      "type": "string"
+    },
+    "SubHeadingText": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

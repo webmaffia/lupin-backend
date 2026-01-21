@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_contact_us_contact_info_cards",
+  "info": {
+    "displayName": "ContactInfoCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

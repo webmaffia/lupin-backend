@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sustainability_global_framework_cards",
+  "info": {
+    "displayName": "GlobalFrameworkCard"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

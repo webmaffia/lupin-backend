@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "perspective_banners",
+  "info": {
+    "singularName": "perspective-banner",
+    "pluralName": "perspective-banners",
+    "displayName": "Perspective Banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  }
+}

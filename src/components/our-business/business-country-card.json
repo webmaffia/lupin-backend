@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_our_business_business_country_cards",
+  "info": {
+    "displayName": "BusinessCountryCard"
+  },
+  "options": {},
+  "attributes": {
+    "CountryName": {
+      "type": "string"
+    },
+    "CountryDetails": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Container": {
+      "type": "enumeration",
+      "enum": [
+        "Left",
+        "Right"
+      ]
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

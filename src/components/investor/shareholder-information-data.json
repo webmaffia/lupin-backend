@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_investor_shareholder_information_data",
+  "info": {
+    "displayName": "ShareHolderInformationData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ShareHolderInformation": {
+      "type": "component",
+      "component": "investor.shareholder-information-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

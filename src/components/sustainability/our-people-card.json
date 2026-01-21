@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sustainability_our_people_cards",
+  "info": {
+    "displayName": "OurPeopleCard"
+  },
+  "options": {},
+  "attributes": {
+    "CardTitle": {
+      "type": "string"
+    },
+    "GoalTitle": {
+      "type": "string"
+    },
+    "GoalDescription": {
+      "type": "richtext"
+    },
+    "TargetYear": {
+      "type": "string"
+    },
+    "StatusData": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

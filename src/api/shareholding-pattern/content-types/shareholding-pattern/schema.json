@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "shareholding_patterns",
+  "info": {
+    "singularName": "shareholding-pattern",
+    "pluralName": "shareholding-patterns",
+    "displayName": "Shareholding Pattern"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  }
+}

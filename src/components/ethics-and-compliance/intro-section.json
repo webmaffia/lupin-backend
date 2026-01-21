@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ethics_and_compliance_intro_sections",
+  "info": {
+    "displayName": "IntroSection"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "IntroDetail": {
+      "type": "richtext"
+    },
+    "DetailDescription": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

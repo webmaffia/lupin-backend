@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_investor_agm_event_cards",
+  "info": {
+    "displayName": "AgmEventCard"
+  },
+  "options": {},
+  "attributes": {
+    "MeetingTitle": {
+      "type": "text"
+    },
+    "MeetingDate": {
+      "type": "date"
+    },
+    "VideoFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "VideoUrl": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

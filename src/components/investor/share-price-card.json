@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_investor_share_price_cards",
+  "info": {
+    "displayName": "SharePriceCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

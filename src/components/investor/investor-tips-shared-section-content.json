@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_investor_investor_tips_shared_section_contents",
+  "info": {
+    "displayName": "investor-tips-shared-section-content"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "SectionBgColor": {
+      "type": "enumeration",
+      "enum": [
+        "grey",
+        "white"
+      ]
+    }
+  },
+  "config": {}
+}

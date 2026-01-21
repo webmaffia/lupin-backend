@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_global_technical_operation_gto_structure_cards",
+  "info": {
+    "displayName": "GTOStructureCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cta": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

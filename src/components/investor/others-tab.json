@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_others_tabs",
+  "info": {
+    "displayName": "OthersTab"
+  },
+  "options": {},
+  "attributes": {
+    "TabYear": {
+      "type": "string"
+    },
+    "PdfCard": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

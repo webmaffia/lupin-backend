@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sustainability_governance_section_data",
+  "info": {
+    "displayName": "GovernanceSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "ErmTitle": {
+      "type": "text"
+    },
+    "GovernanceDetail": {
+      "type": "component",
+      "component": "sustainability.governance-items",
+      "repeatable": true
+    },
+    "Pdf": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

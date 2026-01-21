@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_purposes",
+  "info": {
+    "singularName": "our-purpose",
+    "pluralName": "our-purposes",
+    "displayName": "Our Purpose"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "PageIntroSection": {
+      "type": "component",
+      "component": "our-purpose.intro-card",
+      "repeatable": false
+    },
+    "TreatmentSection": {
+      "type": "component",
+      "component": "our-purpose.treatment-card",
+      "repeatable": false
+    },
+    "CommitmentSection": {
+      "type": "component",
+      "component": "our-purpose.commitments",
+      "repeatable": false
+    },
+    "GuidedFrameWorkSection": {
+      "type": "component",
+      "component": "our-purpose.guided-frame-work",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_image_text_cards",
+  "info": {
+    "displayName": "ImageTextCards"
+  },
+  "options": {},
+  "attributes": {
+    "TitleLine1": {
+      "type": "string"
+    },
+    "TitleLine2": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "string"
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

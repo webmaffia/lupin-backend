@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_investor_annual_returns",
+  "info": {
+    "displayName": "AnnualReturns"
+  },
+  "options": {},
+  "attributes": {
+    "PdfCard": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

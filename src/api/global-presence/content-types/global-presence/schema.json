@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_presences",
+  "info": {
+    "singularName": "global-presence",
+    "pluralName": "global-presences",
+    "displayName": "Global Presence"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageIntroSection": {
+      "type": "component",
+      "component": "global-presence.intro-section",
+      "repeatable": false
+    },
+    "GlobalPresenceSection": {
+      "type": "component",
+      "component": "global-presence.presence-card",
+      "repeatable": true
+    }
+  }
+}

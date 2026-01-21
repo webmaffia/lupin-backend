@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_community_image_content_cards",
+  "info": {
+    "displayName": "ImageContentCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Image_Position": {
+      "type": "enumeration",
+      "enum": [
+        "Left",
+        "Right"
+      ]
+    }
+  },
+  "config": {}
+}

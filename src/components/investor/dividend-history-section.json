@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_investor_dividend_history_sections",
+  "info": {
+    "displayName": "DividendHistorySection"
+  },
+  "options": {},
+  "attributes": {
+    "IntroText": {
+      "type": "richtext"
+    },
+    "DivedendHistory": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

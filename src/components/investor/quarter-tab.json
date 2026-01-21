@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_quarter_tabs",
+  "info": {
+    "displayName": "QuarterTab"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialYear": {
+      "type": "string"
+    },
+    "QuarterlyEarningsSection": {
+      "type": "component",
+      "component": "investor.earnings-period-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

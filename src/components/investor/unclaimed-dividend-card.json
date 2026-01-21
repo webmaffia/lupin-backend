@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_investor_unclaimed_dividend_cards",
+  "info": {
+    "displayName": "UnclaimedDividendCard"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "text"
+    },
+    "DividendInfoSection": {
+      "type": "richtext"
+    },
+    "DividendNotice": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

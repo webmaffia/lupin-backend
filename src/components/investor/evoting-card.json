@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_investor_evoting_cards",
+  "info": {
+    "displayName": "EvotingInfoCard"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Documents": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    },
+    "Heading": {
+      "type": "richtext"
+    },
+    "PdfCard": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": false
+    },
+    "DivendInfo": {
+      "type": "component",
+      "component": "investor.dividend-history-section",
+      "repeatable": true
+    },
+    "NoticeSection": {
+      "type": "richtext"
+    },
+    "PdfSection": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_technical_operation_page_intro_sections",
+  "info": {
+    "displayName": "PageIntroSection"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

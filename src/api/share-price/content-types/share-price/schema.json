@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "share_prices",
+  "info": {
+    "singularName": "share-price",
+    "pluralName": "share-prices",
+    "displayName": "Share Price"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "SharePriceSection": {
+      "type": "component",
+      "component": "investor.share-price-card",
+      "repeatable": true
+    }
+  }
+}

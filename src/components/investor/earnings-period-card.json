@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_earnings_period_cards",
+  "info": {
+    "displayName": "EarningsPeriodCard"
+  },
+  "options": {},
+  "attributes": {
+    "QuarterLabel": {
+      "type": "string"
+    },
+    "PdfCard": {
+      "type": "component",
+      "component": "investor.pdfcomponent",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

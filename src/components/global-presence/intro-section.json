@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_global_presence_intro_sections",
+  "info": {
+    "displayName": "IntroSection"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "IntroDescription": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

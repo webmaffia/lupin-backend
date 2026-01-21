@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "committee_pages",
+  "info": {
+    "singularName": "committee-page",
+    "pluralName": "committee-pages",
+    "displayName": "Committee Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MemberName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "MemberName"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "CommitteeCategory": {
+      "type": "enumeration",
+      "enum": [
+        "Strategy Committee",
+        "Audit Committee"
+      ]
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "MemberImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DetailDescription": {
+      "type": "richtext"
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

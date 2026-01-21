@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sustainability_our_patients_data",
+  "info": {
+    "displayName": "OurPatientsData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "FlowerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PatientCard": {
+      "type": "component",
+      "component": "sustainability.our-patients-card",
+      "repeatable": true
+    },
+    "BackgroundImage": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

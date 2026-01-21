@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sustainability_highlight_contents",
+  "info": {
+    "displayName": "HighlightContent"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "HightLightItem": {
+      "type": "component",
+      "component": "sustainability.highlight-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

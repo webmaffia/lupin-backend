@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_investor_financial_metric_items",
+  "info": {
+    "displayName": "FinancialMetricItem"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialYear": {
+      "type": "string"
+    },
+    "Amount": {
+      "type": "string"
+    },
+    "Year": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

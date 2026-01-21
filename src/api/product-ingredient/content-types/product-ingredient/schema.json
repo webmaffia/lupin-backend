@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_ingredients",
+  "info": {
+    "singularName": "product-ingredient",
+    "pluralName": "product-ingredients",
+    "displayName": "Product Ingredient"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "IngredientName": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  }
+}

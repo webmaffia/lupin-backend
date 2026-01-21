@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "financials",
+  "info": {
+    "singularName": "financial",
+    "pluralName": "financials",
+    "displayName": "Financial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "RevenueProfitabilitySection": {
+      "type": "component",
+      "component": "investor.financial-revenue-profitability-section",
+      "repeatable": false
+    },
+    "RelatedPartyTransactionsSection": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  }
+}

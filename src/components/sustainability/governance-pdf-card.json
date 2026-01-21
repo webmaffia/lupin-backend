@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sustainability_governance_pdf_cards",
+  "info": {
+    "displayName": "GovernancePdfCard"
+  },
+  "options": {},
+  "attributes": {
+    "PdfContent": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

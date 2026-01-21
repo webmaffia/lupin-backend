@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_community_impact_metric_cards",
+  "info": {
+    "displayName": "ImpactMetricCard"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Value": {
+      "type": "biginteger"
+    },
+    "Description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

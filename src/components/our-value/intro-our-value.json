@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_our_value_intro_our_values",
+  "info": {
+    "displayName": "IntroOurValue"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "DetailDescription": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_document_cards",
+  "info": {
+    "displayName": "ExtraordinaryGeneralMeetingCard"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Documents": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

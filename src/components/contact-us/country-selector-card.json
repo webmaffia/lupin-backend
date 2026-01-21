@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_contact_us_country_selector_cards",
+  "info": {
+    "displayName": "CountrySelectorCard"
+  },
+  "options": {},
+  "attributes": {
+    "CountryName": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "AddressDetail": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

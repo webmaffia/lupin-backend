@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_purpose_commitments",
+  "info": {
+    "displayName": "Commitments"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "richtext"
+    },
+    "CommitmentCard": {
+      "type": "component",
+      "component": "shared.image-text-cards",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

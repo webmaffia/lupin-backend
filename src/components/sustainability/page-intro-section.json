@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sustainability_page_intro_sections",
+  "info": {
+    "displayName": "PageIntroSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_investor_subsidiary_yearly_documents",
+  "info": {
+    "displayName": "subsidiary-yearly-document"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialYear": {
+      "type": "string"
+    },
+    "DocumentFilePdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

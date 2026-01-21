@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "unclaimed_dividends",
+  "info": {
+    "singularName": "unclaimed-dividend",
+    "pluralName": "unclaimed-dividends",
+    "displayName": "Unclaimed Dividend"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "UnclaimedDivendSection": {
+      "type": "component",
+      "component": "investor.unclaimed-dividend-card",
+      "repeatable": false
+    }
+  }
+}

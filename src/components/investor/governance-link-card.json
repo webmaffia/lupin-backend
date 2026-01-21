@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_investor_governance_link_cards",
+  "info": {
+    "displayName": "GovernanceLinkCard"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "DesktopImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Links": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

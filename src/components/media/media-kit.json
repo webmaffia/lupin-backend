@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_media_media_kits",
+  "info": {
+    "displayName": "MediaKitCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "ThumbnailImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

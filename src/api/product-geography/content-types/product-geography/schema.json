@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_geographies",
+  "info": {
+    "singularName": "product-geography",
+    "pluralName": "product-geographies",
+    "displayName": "Product Geography"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GeographyName": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_community_key_high_light_sections",
+  "info": {
+    "displayName": "KeyHighLightSection"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "KeyHighlites": {
+      "type": "component",
+      "component": "community.impact-metric-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

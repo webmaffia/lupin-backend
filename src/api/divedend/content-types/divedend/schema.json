@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "divedends",
+  "info": {
+    "singularName": "divedend",
+    "pluralName": "divedends",
+    "displayName": "Divedend"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "DividendTdsCommunicationSection": {
+      "type": "component",
+      "component": "investor.dividend-tds-document-card",
+      "repeatable": false
+    },
+    "DivedendHistorySection": {
+      "type": "component",
+      "component": "investor.dividend-history-section",
+      "repeatable": false
+    }
+  }
+}

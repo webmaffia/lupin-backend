@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_investor_integrated_report_cards",
+  "info": {
+    "displayName": "IntegratedReportCard"
+  },
+  "options": {},
+  "attributes": {
+    "ReportTitle": {
+      "type": "string"
+    },
+    "ReportYear": {
+      "type": "string"
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ReportFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DownloadLabel": {
+      "type": "string"
+    },
+    "ViewAllLabel": {
+      "type": "string"
+    },
+    "ViewAllUrl": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

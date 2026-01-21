@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sustainability_last_section_data",
+  "info": {
+    "displayName": "LastSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

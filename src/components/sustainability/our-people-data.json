@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sustainability_our_people_data",
+  "info": {
+    "displayName": "OurPeopleData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "FlowerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PeopleCard": {
+      "type": "component",
+      "component": "sustainability.our-people-card",
+      "repeatable": true
+    },
+    "Image": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

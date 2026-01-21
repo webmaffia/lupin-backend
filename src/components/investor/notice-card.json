@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_investor_notice_cards",
+  "info": {
+    "displayName": "NoticeCard"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialLabel": {
+      "type": "string"
+    },
+    "Documents": {
+      "type": "component",
+      "component": "investor.notice-document",
+      "repeatable": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

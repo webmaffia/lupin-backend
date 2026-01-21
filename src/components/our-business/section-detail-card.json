@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_our_business_section_detail_cards",
+  "info": {
+    "displayName": "SectionDetailCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

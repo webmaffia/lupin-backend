@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "analyst_coverages",
+  "info": {
+    "singularName": "analyst-coverage",
+    "pluralName": "analyst-coverages",
+    "displayName": "Analyst Coverage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "AnalystCoverageSection": {
+      "type": "component",
+      "component": "investor.analyst-card",
+      "repeatable": true
+    }
+  }
+}
