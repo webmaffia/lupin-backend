@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_community_related_impact_reference_sections",
+  "info": {
+    "displayName": "RelatedImpactReferenceSection"
+  },
+  "options": {},
+  "attributes": {
+    "DetailDescription": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

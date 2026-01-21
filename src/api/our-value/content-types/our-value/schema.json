@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_values",
+  "info": {
+    "singularName": "our-value",
+    "pluralName": "our-values",
+    "displayName": "Our Value"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "OurValueIntroSection": {
+      "type": "component",
+      "component": "our-value.intro-our-value",
+      "repeatable": false
+    },
+    "ValuesOverviewSection": {
+      "type": "component",
+      "component": "our-value.core-value-card",
+      "repeatable": true
+    },
+    "CulturePrinciplesVideoSection": {
+      "type": "component",
+      "component": "our-value.culture-principles",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "global_technical_operations",
+  "info": {
+    "singularName": "global-technical-operation",
+    "pluralName": "global-technical-operations",
+    "displayName": "Global Technical Operation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "PageIntroSection": {
+      "type": "component",
+      "component": "global-technical-operation.page-intro-section",
+      "repeatable": false
+    },
+    "CommentHeading": {
+      "type": "blocks"
+    },
+    "CommentDescription": {
+      "type": "blocks"
+    },
+    "PerformanceAreas": {
+      "type": "component",
+      "component": "global-technical-operation.performance-area-card",
+      "repeatable": true
+    },
+    "GTOStructure": {
+      "type": "component",
+      "component": "global-technical-operation.gto-structure-card",
+      "repeatable": true
+    }
+  }
+}

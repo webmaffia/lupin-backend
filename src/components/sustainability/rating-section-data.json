@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sustainability_rating_section_data",
+  "info": {
+    "displayName": "RatingSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "text"
+    },
+    "RatingItems": {
+      "type": "component",
+      "component": "sustainability.rating-card",
+      "repeatable": true
+    },
+    "Image": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_therapies",
+  "info": {
+    "singularName": "product-therapy",
+    "pluralName": "product-therapies",
+    "displayName": "Product Therapy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TherapyName": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

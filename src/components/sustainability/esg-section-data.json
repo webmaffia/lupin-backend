@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sustainability_esg_section_data",
+  "info": {
+    "displayName": "ESGSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "CenterTitle": {
+      "type": "string"
+    },
+    "CenterDescription": {
+      "type": "richtext"
+    },
+    "ESGFrameworkContent": {
+      "type": "component",
+      "component": "sustainability.esg-framework-card",
+      "repeatable": true
+    },
+    "Image": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

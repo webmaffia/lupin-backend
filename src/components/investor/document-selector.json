@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_investor_document_selectors",
+  "info": {
+    "displayName": "DocumentSelector"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

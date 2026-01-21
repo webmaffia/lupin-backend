@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_investor_pdfcomponents",
+  "info": {
+    "displayName": "pdfcomponent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "isAudited": {
+      "type": "boolean",
+      "default": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "QuarterLabel": {
+      "type": "string"
+    },
+    "PublishedDate": {
+      "type": "date"
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

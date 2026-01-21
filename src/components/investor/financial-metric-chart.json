@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_investor_financial_metric_charts",
+  "info": {
+    "displayName": "FinancialMetricChart"
+  },
+  "options": {},
+  "attributes": {
+    "MetricTitleTitle": {
+      "type": "string"
+    },
+    "Unit": {
+      "type": "string"
+    },
+    "data": {
+      "type": "component",
+      "component": "investor.financial-metric-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

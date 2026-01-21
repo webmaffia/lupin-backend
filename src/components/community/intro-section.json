@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_community_intro_sections",
+  "info": {
+    "displayName": "IntroSection"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PageIntroContent": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

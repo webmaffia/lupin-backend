@@ -1,0 +1,63 @@
+{
+  "collectionName": "components_shared_globalpdfs",
+  "info": {
+    "displayName": "globalInvestor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "financialYear": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "quarter": {
+      "type": "string"
+    },
+    "quarterLabel": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "returnDate": {
+      "type": "string"
+    },
+    "isAudited": {
+      "type": "boolean"
+    },
+    "publishedDate": {
+      "type": "date"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "MicrositeUrl": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

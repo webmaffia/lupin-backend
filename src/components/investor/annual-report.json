@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_investor_annual_reports",
+  "info": {
+    "displayName": "AnnualReport"
+  },
+  "options": {},
+  "attributes": {
+    "TabYear": {
+      "type": "string"
+    },
+    "pdfCard": {
+      "type": "component",
+      "component": "investor.pdfcomponent",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MicrositeUrl": {
+      "type": "text"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

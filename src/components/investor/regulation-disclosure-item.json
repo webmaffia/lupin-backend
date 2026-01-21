@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_investor_regulation_disclosure_items",
+  "info": {
+    "displayName": "RegulationDisclosureItem"
+  },
+  "options": {},
+  "attributes": {
+    "Particular": {
+      "type": "richtext"
+    },
+    "Documents": {
+      "type": "component",
+      "component": "investor.disclosure-document-link",
+      "repeatable": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

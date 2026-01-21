@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sustainability_rating_cards",
+  "info": {
+    "displayName": "RatingCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

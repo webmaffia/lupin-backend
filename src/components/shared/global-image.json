@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_global_images",
+  "info": {
+    "displayName": "GlobalImage"
+  },
+  "options": {},
+  "attributes": {
+    "DesktopImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

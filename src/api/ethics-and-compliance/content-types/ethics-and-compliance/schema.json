@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "ethics_and_compliances",
+  "info": {
+    "singularName": "ethics-and-compliance",
+    "pluralName": "ethics-and-compliances",
+    "displayName": "Ethics And Compliance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "PageIntroSection": {
+      "type": "component",
+      "component": "ethics-and-compliance.intro-section",
+      "repeatable": false
+    }
+  }
+}

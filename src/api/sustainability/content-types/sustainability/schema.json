@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "sustainabilities",
+  "info": {
+    "singularName": "sustainability",
+    "pluralName": "sustainabilities",
+    "displayName": "Sustainability"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "PageIntroSection": {
+      "type": "component",
+      "component": "sustainability.page-intro-section",
+      "repeatable": false
+    },
+    "ESGFrameworkSection": {
+      "type": "component",
+      "component": "sustainability.esg-section-data",
+      "repeatable": false
+    },
+    "OurPeopleSection": {
+      "type": "component",
+      "component": "sustainability.our-people-data",
+      "repeatable": false
+    },
+    "OurPatientSection": {
+      "type": "component",
+      "component": "sustainability.our-patients-data",
+      "repeatable": false
+    },
+    "ESGReportSection": {
+      "type": "component",
+      "component": "sustainability.esg-report",
+      "repeatable": false
+    },
+    "HightLightSection": {
+      "type": "component",
+      "component": "sustainability.highlight-content",
+      "repeatable": false
+    },
+    "ESGRatingSection": {
+      "type": "component",
+      "component": "sustainability.rating-section-data",
+      "repeatable": false
+    },
+    "ESGGovernanceSection": {
+      "type": "component",
+      "component": "sustainability.governance-section-data",
+      "repeatable": false
+    },
+    "GovernacePdfSection": {
+      "type": "component",
+      "component": "sustainability.governance-pdf-card",
+      "repeatable": false
+    },
+    "GlobalFrameworkSection": {
+      "type": "component",
+      "component": "sustainability.global-framework-section-data",
+      "repeatable": false
+    },
+    "LastSection": {
+      "type": "component",
+      "component": "sustainability.last-section-data",
+      "repeatable": false
+    }
+  }
+}

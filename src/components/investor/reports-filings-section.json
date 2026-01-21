@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_investor_reports_filings_sections",
+  "info": {
+    "displayName": "ReportsFilingsSection"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialHighLightCard": {
+      "type": "component",
+      "component": "investor.financial-highlight-card",
+      "repeatable": false
+    },
+    "IntegratedReport": {
+      "type": "component",
+      "component": "investor.integrated-report-card",
+      "repeatable": false
+    },
+    "NSE_EXCHNAGE": {
+      "type": "component",
+      "component": "investor.document-selector",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

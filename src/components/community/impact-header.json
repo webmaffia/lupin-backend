@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_community_impact_headers",
+  "info": {
+    "displayName": "ImpactGlanceSection"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "ImpactHeadingSection": {
+      "type": "component",
+      "component": "community.impact-heading-card",
+      "repeatable": true
+    },
+    "Map": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MetricSection": {
+      "type": "component",
+      "component": "community.impact-metric-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

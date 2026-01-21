@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_investor_event_cards",
+  "info": {
+    "displayName": "EventCard"
+  },
+  "options": {},
+  "attributes": {
+    "EventTitle": {
+      "type": "text"
+    },
+    "Eventdate": {
+      "type": "date"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_purpose_guided_frame_works",
+  "info": {
+    "displayName": "GuidedFrameWork"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "richtext"
+    },
+    "FrameWorkCard": {
+      "type": "component",
+      "component": "shared.image-text-cards",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

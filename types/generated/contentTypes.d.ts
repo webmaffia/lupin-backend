@@ -430,6 +430,568 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'About Us';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AboutOverviewSection: Schema.Attribute.Component<
+      'about-us.about-overview-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'about-us.intro-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    RedirectSection: Schema.Attribute.Component<
+      'about-us.redirect-card',
+      false
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAnalystCoverageAnalystCoverage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'analyst_coverages';
+  info: {
+    displayName: 'Analyst Coverage';
+    pluralName: 'analyst-coverages';
+    singularName: 'analyst-coverage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AnalystCoverageSection: Schema.Attribute.Component<
+      'investor.analyst-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::analyst-coverage.analyst-coverage'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAwardRecognitionAwardRecognition
+  extends Struct.SingleTypeSchema {
+  collectionName: 'award_recognitions';
+  info: {
+    displayName: 'Award Recognition';
+    pluralName: 'award-recognitions';
+    singularName: 'award-recognition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.String;
+    IntroDescription: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::award-recognition.award-recognition'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAwardAward extends Struct.CollectionTypeSchema {
+  collectionName: 'awards';
+  info: {
+    displayName: 'Award';
+    pluralName: 'awards';
+    singularName: 'award';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AwardDescription: Schema.Attribute.RichText;
+    AwardYear: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DisplayOrder: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::award.award'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'categories';
+  info: {
+    displayName: 'Product Category';
+    pluralName: 'categories';
+    singularName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CategoryName: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCodeOfConductCodeOfConduct extends Struct.SingleTypeSchema {
+  collectionName: 'code_of_conducts';
+  info: {
+    displayName: 'Code of Conduct';
+    pluralName: 'code-of-conducts';
+    singularName: 'code-of-conduct';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CodeOfConductDocumentsSection: Schema.Attribute.Component<
+      'investor.pdfblock',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::code-of-conduct.code-of-conduct'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCommitteePageCommitteePage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'committee_pages';
+  info: {
+    displayName: 'Committee Page';
+    pluralName: 'committee-pages';
+    singularName: 'committee-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CommitteeCategory: Schema.Attribute.Enumeration<
+      ['Strategy Committee', 'Audit Committee']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Designation: Schema.Attribute.String;
+    DetailDescription: Schema.Attribute.RichText;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::committee-page.committee-page'
+    > &
+      Schema.Attribute.Private;
+    MemberImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    MemberName: Schema.Attribute.String;
+    Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'MemberName'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCommunityCommunity extends Struct.SingleTypeSchema {
+  collectionName: 'communities';
+  info: {
+    displayName: 'Community';
+    pluralName: 'communities';
+    singularName: 'community';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ImpactSection: Schema.Attribute.Component<'community.impact-header', false>;
+    LivelihoodSection: Schema.Attribute.Component<
+      'community.program-data',
+      false
+    >;
+    LiveProgramSection: Schema.Attribute.Component<
+      'community.live-program-section',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::community.community'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'community.intro-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SectionData: Schema.Attribute.Component<
+      'community.related-impact-reference-section',
+      false
+    >;
+    TabSectionDetails: Schema.Attribute.Component<'community.tab-card', true>;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    displayName: 'Contact Us';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContactInfoSection: Schema.Attribute.Component<
+      'contact-us.contact-detail-card',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GlobalPresenceSection: Schema.Attribute.Component<
+      'contact-us.country-selector-card',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDivedendDivedend extends Struct.SingleTypeSchema {
+  collectionName: 'divedends';
+  info: {
+    displayName: 'Divedend';
+    pluralName: 'divedends';
+    singularName: 'divedend';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DivedendHistorySection: Schema.Attribute.Component<
+      'investor.dividend-history-section',
+      false
+    >;
+    DividendTdsCommunicationSection: Schema.Attribute.Component<
+      'investor.dividend-tds-document-card',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::divedend.divedend'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployeeStockOptionSchemeEmployeeStockOptionScheme
+  extends Struct.SingleTypeSchema {
+  collectionName: 'employee_stock_option_schemes';
+  info: {
+    displayName: 'Employee Stock Option Scheme';
+    pluralName: 'employee-stock-option-schemes';
+    singularName: 'employee-stock-option-scheme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EmployeeStockOptionSchemesSection: Schema.Attribute.Component<
+      'investor.pdfblock',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employee-stock-option-scheme.employee-stock-option-scheme'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEthicsAndComplianceEthicsAndCompliance
+  extends Struct.SingleTypeSchema {
+  collectionName: 'ethics_and_compliances';
+  info: {
+    displayName: 'Ethics And Compliance';
+    pluralName: 'ethics-and-compliances';
+    singularName: 'ethics-and-compliance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ethics-and-compliance.ethics-and-compliance'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'ethics-and-compliance.intro-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFinancialFinancial extends Struct.SingleTypeSchema {
+  collectionName: 'financials';
+  info: {
+    displayName: 'Financial';
+    pluralName: 'financials';
+    singularName: 'financial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::financial.financial'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    RelatedPartyTransactionsSection: Schema.Attribute.Component<
+      'investor.pdfblock',
+      true
+    >;
+    RevenueProfitabilitySection: Schema.Attribute.Component<
+      'investor.financial-revenue-profitability-section',
+      false
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalPresenceGlobalPresence
+  extends Struct.SingleTypeSchema {
+  collectionName: 'global_presences';
+  info: {
+    displayName: 'Global Presence';
+    pluralName: 'global-presences';
+    singularName: 'global-presence';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GlobalPresenceSection: Schema.Attribute.Component<
+      'global-presence.presence-card',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-presence.global-presence'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'global-presence.intro-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalTechnicalOperationGlobalTechnicalOperation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'global_technical_operations';
+  info: {
+    displayName: 'Global Technical Operation';
+    pluralName: 'global-technical-operations';
+    singularName: 'global-technical-operation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CommentDescription: Schema.Attribute.Blocks;
+    CommentHeading: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GTOStructure: Schema.Attribute.Component<
+      'global-technical-operation.gto-structure-card',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-technical-operation.global-technical-operation'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'global-technical-operation.page-intro-section',
+      false
+    >;
+    PerformanceAreas: Schema.Attribute.Component<
+      'global-technical-operation.performance-area-card',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalTechnicalPresenceGlobalTechnicalPresence
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'global_technical_presences';
+  info: {
+    displayName: 'Global Technical Presence';
+    pluralName: 'global-technical-presences';
+    singularName: 'global-technical-presence';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-technical-presence.global-technical-presence'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -469,13 +1031,42 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiInvestorsFaqInvestorsFaq
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'investors_faqs';
+export interface ApiInvestorFaqInvestorFaq extends Struct.SingleTypeSchema {
+  collectionName: 'investor_faqs';
   info: {
-    displayName: 'Investors Faqs';
-    pluralName: 'investors-faqs';
-    singularName: 'investors-faq';
+    displayName: 'Investor Faq';
+    pluralName: 'investor-faqs';
+    singularName: 'investor-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FaqSection: Schema.Attribute.Component<'investor.faq-list', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-faq.investor-faq'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorRegulationDisclosureInvestorRegulationDisclosure
+  extends Struct.SingleTypeSchema {
+  collectionName: 'investor_regulation_disclosures';
+  info: {
+    displayName: 'Investor Regulation Disclosure';
+    pluralName: 'investor-regulation-disclosures';
+    singularName: 'investor-regulation-disclosure';
   };
   options: {
     draftAndPublish: true;
@@ -487,10 +1078,57 @@ export interface ApiInvestorsFaqInvestorsFaq
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::investors-faq.investors-faq'
+      'api::investor-regulation-disclosure.investor-regulation-disclosure'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    RegulationDisclosureSection: Schema.Attribute.Component<
+      'investor.regulation-disclosure-item',
+      true
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorInvestor extends Struct.SingleTypeSchema {
+  collectionName: 'investors';
+  info: {
+    displayName: 'Investor';
+    pluralName: 'investors';
+    singularName: 'investor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CorporateGovernanceSection: Schema.Attribute.Component<
+      'investor.governance-link-card',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    IntroductionSection: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor.investor'
+    > &
+      Schema.Attribute.Private;
+    NewsSection: Schema.Attribute.Component<'homepage.news', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    ReportsFilingSection: Schema.Attribute.Component<
+      'investor.reports-filings-section',
+      false
+    >;
+    ShareholderInformationSection: Schema.Attribute.Component<
+      'investor.shareholder-information-data',
+      false
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -520,6 +1158,1058 @@ export interface ApiInvestorsUpdateInvestorsUpdate
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLeaderPageBannerLeaderPageBanner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'leader_page_banners';
+  info: {
+    displayName: 'Leader Page Banner';
+    pluralName: 'leader-page-banners';
+    singularName: 'leader-page-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::leader-page-banner.leader-page-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
+  collectionName: 'leaders';
+  info: {
+    displayName: 'Leader';
+    pluralName: 'leaders';
+    singularName: 'leader';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Age: Schema.Attribute.String;
+    Appointed: Schema.Attribute.String;
+    CommitteeMembership: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    Designation: Schema.Attribute.String;
+    DetailDescription: Schema.Attribute.RichText;
+    DisplayOrder: Schema.Attribute.String;
+    EducationDetail: Schema.Attribute.RichText;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    LeaderName: Schema.Attribute.String;
+    LeadershipType: Schema.Attribute.Enumeration<['Board']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::leader.leader'
+    > &
+      Schema.Attribute.Private;
+    Nationality: Schema.Attribute.String;
+    Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ProfileImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'LeaderName'>;
+    Tenure: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediaCoverageBannerMediaCoverageBanner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'media_coverage_banners';
+  info: {
+    displayName: 'Media Coverage Banner';
+    pluralName: 'media-coverage-banners';
+    singularName: 'media-coverage-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-coverage-banner.media-coverage-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediaCoverageMediaCoverage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'media_coverages';
+  info: {
+    displayName: 'Media Coverage';
+    pluralName: 'media-coverages';
+    singularName: 'media-coverage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-coverage.media-coverage'
+    > &
+      Schema.Attribute.Private;
+    NewsLink: Schema.Attribute.Text;
+    NewsPdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PosterImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    PublishedDate: Schema.Attribute.Date;
+    Title: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    YoutubeEmbedLink: Schema.Attribute.String;
+  };
+}
+
+export interface ApiMediaKitMediaKit extends Struct.SingleTypeSchema {
+  collectionName: 'media_kits';
+  info: {
+    displayName: 'Media Kit';
+    pluralName: 'media-kits';
+    singularName: 'media-kit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DownloadableAssetsSection: Schema.Attribute.Component<
+      'media.media-kit',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-kit.media-kit'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsAndEventNewsAndEvent extends Struct.SingleTypeSchema {
+  collectionName: 'news_and_events';
+  info: {
+    displayName: 'News And Event';
+    pluralName: 'news-and-events';
+    singularName: 'news-and-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AnnualGeneralMeetingSection: Schema.Attribute.Component<
+      'investor.agm-event-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EventSection: Schema.Attribute.Component<'investor.event-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-and-event.news-and-event'
+    > &
+      Schema.Attribute.Private;
+    PresentationSection: Schema.Attribute.Component<'investor.pdfblock', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNoticeNotice extends Struct.SingleTypeSchema {
+  collectionName: 'notices';
+  info: {
+    displayName: 'Notice';
+    pluralName: 'notices';
+    singularName: 'notice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::notice.notice'
+    > &
+      Schema.Attribute.Private;
+    NoticeSection: Schema.Attribute.Component<'investor.notice-card', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOtherStatutoryInformationOtherStatutoryInformation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'other_statutory_informations';
+  info: {
+    displayName: 'Other Statutory Information';
+    pluralName: 'other-statutory-informations';
+    singularName: 'other-statutory-information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EvotingSection: Schema.Attribute.Component<'investor.evoting-card', false>;
+    ExtraordinaryGeneralMeetingSection: Schema.Attribute.Component<
+      'investor.document-card',
+      false
+    >;
+    KycUpdateSection: Schema.Attribute.Component<
+      'investor.document-card',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::other-statutory-information.other-statutory-information'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurBusinessOurBusiness extends Struct.CollectionTypeSchema {
+  collectionName: 'our_businesses';
+  info: {
+    displayName: 'Our Business';
+    pluralName: 'our-businesses';
+    singularName: 'our-business';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BrandName: Schema.Attribute.String;
+    CountryDetails: Schema.Attribute.Component<
+      'our-business.business-country-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-business.our-business'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    SectionDetail: Schema.Attribute.Component<
+      'our-business.section-detail-card',
+      false
+    >;
+    ShortSummary: Schema.Attribute.RichText;
+    slug: Schema.Attribute.UID<'BrandName'>;
+    ThumbnailImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurPurposeOurPurpose extends Struct.SingleTypeSchema {
+  collectionName: 'our_purposes';
+  info: {
+    displayName: 'Our Purpose';
+    pluralName: 'our-purposes';
+    singularName: 'our-purpose';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CommitmentSection: Schema.Attribute.Component<
+      'our-purpose.commitments',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GuidedFrameWorkSection: Schema.Attribute.Component<
+      'our-purpose.guided-frame-work',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-purpose.our-purpose'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'our-purpose.intro-card',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    TreatmentSection: Schema.Attribute.Component<
+      'our-purpose.treatment-card',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
+  collectionName: 'our_stories';
+  info: {
+    displayName: 'Our Story';
+    pluralName: 'our-stories';
+    singularName: 'our-story';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DidYouKnowSection: Schema.Attribute.Component<
+      'our-story.highlight-content',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-story.our-story'
+    > &
+      Schema.Attribute.Private;
+    MilestonesSection: Schema.Attribute.Component<
+      'our-story.milestones-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    StoryIntroSection: Schema.Attribute.Component<
+      'our-story.image-content-block',
+      true
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurValueOurValue extends Struct.SingleTypeSchema {
+  collectionName: 'our_values';
+  info: {
+    displayName: 'Our Value';
+    pluralName: 'our-values';
+    singularName: 'our-value';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CulturePrinciplesVideoSection: Schema.Attribute.Component<
+      'our-value.culture-principles',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-value.our-value'
+    > &
+      Schema.Attribute.Private;
+    OurValueIntroSection: Schema.Attribute.Component<
+      'our-value.intro-our-value',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ValuesOverviewSection: Schema.Attribute.Component<
+      'our-value.core-value-card',
+      true
+    >;
+  };
+}
+
+export interface ApiPerspectiveBannerPerspectiveBanner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'perspective_banners';
+  info: {
+    displayName: 'Perspective Banner';
+    pluralName: 'perspective-banners';
+    singularName: 'perspective-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::perspective-banner.perspective-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPerspectivePerspective extends Struct.CollectionTypeSchema {
+  collectionName: 'perspectives';
+  info: {
+    displayName: 'Perspective';
+    pluralName: 'perspectives';
+    singularName: 'perspective';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DisplayOrder: Schema.Attribute.String;
+    DocumentPdf: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::perspective.perspective'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    PublishedDate: Schema.Attribute.Date;
+    ShortSummary: Schema.Attribute.RichText;
+    Title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'policies';
+  info: {
+    displayName: 'Policy';
+    pluralName: 'policies';
+    singularName: 'policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::policy.policy'
+    > &
+      Schema.Attribute.Private;
+    PolicyDocumentsSection: Schema.Attribute.Component<
+      'investor.pdfblock',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPressReleaseBannerPressReleaseBanner
+  extends Struct.SingleTypeSchema {
+  collectionName: 'press_release_banners';
+  info: {
+    displayName: 'Press Release Banner';
+    pluralName: 'press-release-banners';
+    singularName: 'press-release-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::press-release-banner.press-release-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductFormProductForm extends Struct.CollectionTypeSchema {
+  collectionName: 'product_forms';
+  info: {
+    displayName: 'Product Form';
+    pluralName: 'product-forms';
+    singularName: 'product-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FormName: Schema.Attribute.String;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-form.product-form'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductGeographyProductGeography
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_geographies';
+  info: {
+    displayName: 'Product Geography';
+    pluralName: 'product-geographies';
+    singularName: 'product-geography';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GeographyName: Schema.Attribute.String;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-geography.product-geography'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductIngredientProductIngredient
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_ingredients';
+  info: {
+    displayName: 'Product Ingredient';
+    pluralName: 'product-ingredients';
+    singularName: 'product-ingredient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    IngredientName: Schema.Attribute.String;
+    isActive: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-ingredient.product-ingredient'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductTherapyProductTherapy
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_therapies';
+  info: {
+    displayName: 'Product Therapy';
+    pluralName: 'product-therapies';
+    singularName: 'product-therapy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-therapy.product-therapy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TherapyName: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
+  collectionName: 'redirects';
+  info: {
+    displayName: 'Redirect';
+    pluralName: 'redirects';
+    singularName: 'redirect';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Destination: Schema.Attribute.Text;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::redirect.redirect'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Source: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReportFilingReportFiling extends Struct.SingleTypeSchema {
+  collectionName: 'report_filings';
+  info: {
+    displayName: 'Report Filing';
+    pluralName: 'report-filings';
+    singularName: 'report-filing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AnnualReportSection: Schema.Attribute.Component<
+      'investor.annual-report',
+      true
+    >;
+    AnnualReturnsSection: Schema.Attribute.Component<
+      'investor.annual-returns',
+      true
+    >;
+    Board_Meeting_Filings_Section: Schema.Attribute.Component<
+      'investor.board-tab',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::report-filing.report-filing'
+    > &
+      Schema.Attribute.Private;
+    OtherExchangeFilingsSection: Schema.Attribute.Component<
+      'investor.others-tab',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    QuarterlyResultsSection: Schema.Attribute.Component<
+      'investor.quarter-tab',
+      true
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSakshamNiveshakSakshamNiveshak
+  extends Struct.SingleTypeSchema {
+  collectionName: 'saksham_niveshaks';
+  info: {
+    displayName: 'Saksham Niveshak';
+    pluralName: 'saksham-niveshaks';
+    singularName: 'saksham-niveshak';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::saksham-niveshak.saksham-niveshak'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSharePriceSharePrice extends Struct.SingleTypeSchema {
+  collectionName: 'share_prices';
+  info: {
+    displayName: 'Share Price';
+    pluralName: 'share-prices';
+    singularName: 'share-price';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::share-price.share-price'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SharePriceSection: Schema.Attribute.Component<
+      'investor.share-price-card',
+      true
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShareholdingPatternShareholdingPattern
+  extends Struct.SingleTypeSchema {
+  collectionName: 'shareholding_patterns';
+  info: {
+    displayName: 'Shareholding Pattern';
+    pluralName: 'shareholding-patterns';
+    singularName: 'shareholding-pattern';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shareholding-pattern.shareholding-pattern'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSubsidiarySubsidiary extends Struct.SingleTypeSchema {
+  collectionName: 'subsidiaries';
+  info: {
+    displayName: 'Subsidiary';
+    pluralName: 'subsidiaries';
+    singularName: 'subsidiary';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subsidiary.subsidiary'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Subsidiaries: Schema.Attribute.Component<'investor.subsidiary-item', true>;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSustainabilitySustainability
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sustainabilities';
+  info: {
+    displayName: 'Sustainability';
+    pluralName: 'sustainabilities';
+    singularName: 'sustainability';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ESGFrameworkSection: Schema.Attribute.Component<
+      'sustainability.esg-section-data',
+      false
+    >;
+    ESGGovernanceSection: Schema.Attribute.Component<
+      'sustainability.governance-section-data',
+      false
+    >;
+    ESGRatingSection: Schema.Attribute.Component<
+      'sustainability.rating-section-data',
+      false
+    >;
+    ESGReportSection: Schema.Attribute.Component<
+      'sustainability.esg-report',
+      false
+    >;
+    GlobalFrameworkSection: Schema.Attribute.Component<
+      'sustainability.global-framework-section-data',
+      false
+    >;
+    GovernacePdfSection: Schema.Attribute.Component<
+      'sustainability.governance-pdf-card',
+      false
+    >;
+    HightLightSection: Schema.Attribute.Component<
+      'sustainability.highlight-content',
+      false
+    >;
+    LastSection: Schema.Attribute.Component<
+      'sustainability.last-section-data',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sustainability.sustainability'
+    > &
+      Schema.Attribute.Private;
+    OurPatientSection: Schema.Attribute.Component<
+      'sustainability.our-patients-data',
+      false
+    >;
+    OurPeopleSection: Schema.Attribute.Component<
+      'sustainability.our-people-data',
+      false
+    >;
+    PageIntroSection: Schema.Attribute.Component<
+      'sustainability.page-intro-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTipsForShareholderTipsForShareholder
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tips_for_shareholders';
+  info: {
+    displayName: 'Tips For Shareholder';
+    pluralName: 'tips-for-shareholders';
+    singularName: 'tips-for-shareholder';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tips-for-shareholder.tips-for-shareholder'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TipsShareHolderSectionContent: Schema.Attribute.Component<
+      'investor.investor-tips-shared-section-content',
+      true
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTransferPhysicalShareTransferPhysicalShare
+  extends Struct.SingleTypeSchema {
+  collectionName: 'transfer_physical_shares';
+  info: {
+    displayName: 'Transfer Physical Share';
+    pluralName: 'transfer-physical-shares';
+    singularName: 'transfer-physical-share';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::transfer-physical-share.transfer-physical-share'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUnclaimedDividendUnclaimedDividend
+  extends Struct.SingleTypeSchema {
+  collectionName: 'unclaimed_dividends';
+  info: {
+    displayName: 'Unclaimed Dividend';
+    pluralName: 'unclaimed-dividends';
+    singularName: 'unclaimed-dividend';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::unclaimed-dividend.unclaimed-dividend'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    UnclaimedDivendSection: Schema.Attribute.Component<
+      'investor.unclaimed-dividend-card',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1036,9 +2726,57 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::analyst-coverage.analyst-coverage': ApiAnalystCoverageAnalystCoverage;
+      'api::award-recognition.award-recognition': ApiAwardRecognitionAwardRecognition;
+      'api::award.award': ApiAwardAward;
+      'api::category.category': ApiCategoryCategory;
+      'api::code-of-conduct.code-of-conduct': ApiCodeOfConductCodeOfConduct;
+      'api::committee-page.committee-page': ApiCommitteePageCommitteePage;
+      'api::community.community': ApiCommunityCommunity;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::divedend.divedend': ApiDivedendDivedend;
+      'api::employee-stock-option-scheme.employee-stock-option-scheme': ApiEmployeeStockOptionSchemeEmployeeStockOptionScheme;
+      'api::ethics-and-compliance.ethics-and-compliance': ApiEthicsAndComplianceEthicsAndCompliance;
+      'api::financial.financial': ApiFinancialFinancial;
+      'api::global-presence.global-presence': ApiGlobalPresenceGlobalPresence;
+      'api::global-technical-operation.global-technical-operation': ApiGlobalTechnicalOperationGlobalTechnicalOperation;
+      'api::global-technical-presence.global-technical-presence': ApiGlobalTechnicalPresenceGlobalTechnicalPresence;
       'api::homepage.homepage': ApiHomepageHomepage;
-      'api::investors-faq.investors-faq': ApiInvestorsFaqInvestorsFaq;
+      'api::investor-faq.investor-faq': ApiInvestorFaqInvestorFaq;
+      'api::investor-regulation-disclosure.investor-regulation-disclosure': ApiInvestorRegulationDisclosureInvestorRegulationDisclosure;
+      'api::investor.investor': ApiInvestorInvestor;
       'api::investors-update.investors-update': ApiInvestorsUpdateInvestorsUpdate;
+      'api::leader-page-banner.leader-page-banner': ApiLeaderPageBannerLeaderPageBanner;
+      'api::leader.leader': ApiLeaderLeader;
+      'api::media-coverage-banner.media-coverage-banner': ApiMediaCoverageBannerMediaCoverageBanner;
+      'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
+      'api::media-kit.media-kit': ApiMediaKitMediaKit;
+      'api::news-and-event.news-and-event': ApiNewsAndEventNewsAndEvent;
+      'api::notice.notice': ApiNoticeNotice;
+      'api::other-statutory-information.other-statutory-information': ApiOtherStatutoryInformationOtherStatutoryInformation;
+      'api::our-business.our-business': ApiOurBusinessOurBusiness;
+      'api::our-purpose.our-purpose': ApiOurPurposeOurPurpose;
+      'api::our-story.our-story': ApiOurStoryOurStory;
+      'api::our-value.our-value': ApiOurValueOurValue;
+      'api::perspective-banner.perspective-banner': ApiPerspectiveBannerPerspectiveBanner;
+      'api::perspective.perspective': ApiPerspectivePerspective;
+      'api::policy.policy': ApiPolicyPolicy;
+      'api::press-release-banner.press-release-banner': ApiPressReleaseBannerPressReleaseBanner;
+      'api::product-form.product-form': ApiProductFormProductForm;
+      'api::product-geography.product-geography': ApiProductGeographyProductGeography;
+      'api::product-ingredient.product-ingredient': ApiProductIngredientProductIngredient;
+      'api::product-therapy.product-therapy': ApiProductTherapyProductTherapy;
+      'api::redirect.redirect': ApiRedirectRedirect;
+      'api::report-filing.report-filing': ApiReportFilingReportFiling;
+      'api::saksham-niveshak.saksham-niveshak': ApiSakshamNiveshakSakshamNiveshak;
+      'api::share-price.share-price': ApiSharePriceSharePrice;
+      'api::shareholding-pattern.shareholding-pattern': ApiShareholdingPatternShareholdingPattern;
+      'api::subsidiary.subsidiary': ApiSubsidiarySubsidiary;
+      'api::sustainability.sustainability': ApiSustainabilitySustainability;
+      'api::tips-for-shareholder.tips-for-shareholder': ApiTipsForShareholderTipsForShareholder;
+      'api::transfer-physical-share.transfer-physical-share': ApiTransferPhysicalShareTransferPhysicalShare;
+      'api::unclaimed-dividend.unclaimed-dividend': ApiUnclaimedDividendUnclaimedDividend;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

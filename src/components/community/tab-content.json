@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_community_tab_contents",
+  "info": {
+    "displayName": "TabContent"
+  },
+  "options": {},
+  "attributes": {
+    "SectionHeading": {
+      "type": "component",
+      "component": "community.image-content-card",
+      "repeatable": false
+    },
+    "KeyHighlites": {
+      "type": "component",
+      "component": "community.key-high-light-section",
+      "repeatable": true
+    },
+    "SectionData": {
+      "type": "component",
+      "component": "community.image-content-card",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

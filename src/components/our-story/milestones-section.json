@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_our_story_milestones_sections",
+  "info": {
+    "displayName": "SectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "MilestoneYear": {
+      "type": "component",
+      "component": "our-story.milestone-year",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

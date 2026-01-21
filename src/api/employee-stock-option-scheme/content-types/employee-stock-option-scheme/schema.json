@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "employee_stock_option_schemes",
+  "info": {
+    "singularName": "employee-stock-option-scheme",
+    "pluralName": "employee-stock-option-schemes",
+    "displayName": "Employee Stock Option Scheme"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "EmployeeStockOptionSchemesSection": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  }
+}

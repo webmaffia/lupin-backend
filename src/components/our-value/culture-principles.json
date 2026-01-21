@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_our_value_culture_principles",
+  "info": {
+    "displayName": "CulturePrinciples"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "text"
+    },
+    "DesktopPosterImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MobilePosterImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "YoutubeLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

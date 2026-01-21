@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_investor_subsidiary_items",
+  "info": {
+    "displayName": "SubsidiaryItem"
+  },
+  "options": {},
+  "attributes": {
+    "SubsidiaryName": {
+      "type": "text"
+    },
+    "Documents": {
+      "type": "component",
+      "component": "investor.subsidiary-yearly-document",
+      "repeatable": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

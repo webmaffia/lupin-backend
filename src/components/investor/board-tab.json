@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_board_tabs",
+  "info": {
+    "displayName": "BoardMeetingTab"
+  },
+  "options": {},
+  "attributes": {
+    "TabYear": {
+      "type": "string"
+    },
+    "pdfCard": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "report_filings",
+  "info": {
+    "singularName": "report-filing",
+    "pluralName": "report-filings",
+    "displayName": "Report Filing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "QuarterlyResultsSection": {
+      "type": "component",
+      "component": "investor.quarter-tab",
+      "repeatable": true
+    },
+    "AnnualReportSection": {
+      "type": "component",
+      "component": "investor.annual-report",
+      "repeatable": true
+    },
+    "AnnualReturnsSection": {
+      "type": "component",
+      "component": "investor.annual-returns",
+      "repeatable": true
+    },
+    "Board_Meeting_Filings_Section": {
+      "type": "component",
+      "component": "investor.board-tab",
+      "repeatable": true
+    },
+    "OtherExchangeFilingsSection": {
+      "type": "component",
+      "component": "investor.others-tab",
+      "repeatable": true
+    }
+  }
+}

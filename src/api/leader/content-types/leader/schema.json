@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leaders",
+  "info": {
+    "singularName": "leader",
+    "pluralName": "leaders",
+    "displayName": "Leader"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LeaderName": {
+      "type": "string"
+    },
+    "ProfileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "LeaderName"
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "LeadershipType": {
+      "type": "enumeration",
+      "enum": [
+        "Board"
+      ]
+    },
+    "DetailDescription": {
+      "type": "richtext"
+    },
+    "EducationDetail": {
+      "type": "richtext"
+    },
+    "Age": {
+      "type": "string"
+    },
+    "Nationality": {
+      "type": "string"
+    },
+    "Tenure": {
+      "type": "string"
+    },
+    "Appointed": {
+      "type": "string"
+    },
+    "CommitteeMembership": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  }
+}

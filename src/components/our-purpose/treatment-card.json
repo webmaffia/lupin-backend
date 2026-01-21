@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_our_purpose_treatment_cards",
+  "info": {
+    "displayName": "TreatmentCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "ParaGraphDescription": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.global-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

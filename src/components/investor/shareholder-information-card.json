@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_investor_shareholder_information_cards",
+  "info": {
+    "displayName": "ShareHolderInformationCard"
+  },
+  "options": {},
+  "attributes": {
+    "PdfTitle": {
+      "type": "string"
+    },
+    "DocumentPdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

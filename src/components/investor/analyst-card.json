@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_investor_analyst_cards",
+  "info": {
+    "displayName": "AnalystCard"
+  },
+  "options": {},
+  "attributes": {
+    "Institution": {
+      "type": "string"
+    },
+    "AnalystName": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

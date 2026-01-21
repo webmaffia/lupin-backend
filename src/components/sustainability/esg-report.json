@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sustainability_esg_reports",
+  "info": {
+    "displayName": "EsgReport"
+  },
+  "options": {},
+  "attributes": {
+    "Pdf": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

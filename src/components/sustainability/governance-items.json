@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sustainability_governance_items",
+  "info": {
+    "displayName": "GovernanceItems"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "SubHeading": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_stories",
+  "info": {
+    "singularName": "our-story",
+    "pluralName": "our-stories",
+    "displayName": "Our Story"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "StoryIntroSection": {
+      "type": "component",
+      "component": "our-story.image-content-block",
+      "repeatable": true
+    },
+    "DidYouKnowSection": {
+      "type": "component",
+      "component": "our-story.highlight-content",
+      "repeatable": true
+    },
+    "MilestonesSection": {
+      "type": "component",
+      "component": "our-story.milestones-section",
+      "repeatable": false
+    }
+  }
+}

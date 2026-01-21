@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "investors",
+  "info": {
+    "singularName": "investor",
+    "pluralName": "investors",
+    "displayName": "Investor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "IntroductionSection": {
+      "type": "richtext"
+    },
+    "CorporateGovernanceSection": {
+      "type": "component",
+      "component": "investor.governance-link-card",
+      "repeatable": false
+    },
+    "ShareholderInformationSection": {
+      "type": "component",
+      "component": "investor.shareholder-information-data",
+      "repeatable": false
+    },
+    "NewsSection": {
+      "type": "component",
+      "component": "homepage.news",
+      "repeatable": false
+    },
+    "ReportsFilingSection": {
+      "type": "component",
+      "component": "investor.reports-filings-section",
+      "repeatable": false
+    }
+  }
+}

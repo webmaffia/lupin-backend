@@ -13,7 +13,9 @@
     "cards": {
       "type": "component",
       "component": "homepage.cards",
-      "repeatable": true
+      "repeatable": true,
+      "min": 3,
+      "max": 3
     }
   },
   "config": {}

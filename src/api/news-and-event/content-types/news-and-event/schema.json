@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_and_events",
+  "info": {
+    "singularName": "news-and-event",
+    "pluralName": "news-and-events",
+    "displayName": "News And Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "AnnualGeneralMeetingSection": {
+      "type": "component",
+      "component": "investor.agm-event-card",
+      "repeatable": true
+    },
+    "EventSection": {
+      "type": "component",
+      "component": "investor.event-card",
+      "repeatable": true
+    },
+    "PresentationSection": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  }
+}

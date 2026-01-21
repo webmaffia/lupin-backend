@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "global_technical_presences",
+  "info": {
+    "singularName": "global-technical-presence",
+    "pluralName": "global-technical-presences",
+    "displayName": "Global Technical Presence"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  }
+}

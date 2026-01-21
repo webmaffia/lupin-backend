@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_community_tab_cards",
+  "info": {
+    "displayName": "TabCard"
+  },
+  "options": {},
+  "attributes": {
+    "TabTitle": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "TabSectionData": {
+      "type": "component",
+      "component": "community.tab-content",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

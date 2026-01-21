@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sustainability_our_patients_cards",
+  "info": {
+    "displayName": "OurPatientsCard"
+  },
+  "options": {},
+  "attributes": {
+    "CardTitle": {
+      "type": "string"
+    },
+    "GoalTitle": {
+      "type": "string"
+    },
+    "GoalDescription": {
+      "type": "richtext"
+    },
+    "TargetYear": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

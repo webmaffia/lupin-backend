@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "saksham_niveshaks",
+  "info": {
+    "singularName": "saksham-niveshak",
+    "pluralName": "saksham-niveshaks",
+    "displayName": "Saksham Niveshak"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}

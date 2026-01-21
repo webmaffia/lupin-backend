@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_investor_faq_lists",
+  "info": {
+    "displayName": "FaqList"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

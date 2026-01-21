@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_investor_dividend_tds_document_cards",
+  "info": {
+    "displayName": "DividendTdsDocumentCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "string"
+    },
+    "PdfCard": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

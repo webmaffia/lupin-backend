@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "other_statutory_informations",
+  "info": {
+    "singularName": "other-statutory-information",
+    "pluralName": "other-statutory-informations",
+    "displayName": "Other Statutory Information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "ExtraordinaryGeneralMeetingSection": {
+      "type": "component",
+      "component": "investor.document-card",
+      "repeatable": false
+    },
+    "EvotingSection": {
+      "type": "component",
+      "component": "investor.evoting-card",
+      "repeatable": false
+    },
+    "KycUpdateSection": {
+      "type": "component",
+      "component": "investor.document-card",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sustainability_global_framework_section_data",
+  "info": {
+    "displayName": "GlobalFrameworkSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "richtext"
+    },
+    "GlobalFrameworkItems": {
+      "type": "component",
+      "component": "sustainability.global-framework-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

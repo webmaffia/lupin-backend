@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "award_recognitions",
+  "info": {
+    "singularName": "award-recognition",
+    "pluralName": "award-recognitions",
+    "displayName": "Award Recognition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "IntroDescription": {
+      "type": "richtext"
+    }
+  }
+}

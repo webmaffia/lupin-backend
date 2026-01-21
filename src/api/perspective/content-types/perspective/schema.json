@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perspectives",
+  "info": {
+    "singularName": "perspective",
+    "pluralName": "perspectives",
+    "displayName": "Perspective"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "PublishedDate": {
+      "type": "date"
+    },
+    "ShortSummary": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "DocumentPdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "DisplayOrder": {
+      "type": "string"
+    }
+  }
+}

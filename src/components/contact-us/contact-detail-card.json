@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_contact_us_contact_detail_cards",
+  "info": {
+    "displayName": "ContactDetailCard"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "string"
+    },
+    "ContactCard": {
+      "type": "component",
+      "component": "contact-us.contact-info-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_about_us_redirect_cards",
+  "info": {
+    "displayName": "RedirectCard"
+  },
+  "options": {},
+  "attributes": {
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

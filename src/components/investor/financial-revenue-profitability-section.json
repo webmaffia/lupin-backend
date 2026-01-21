@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_investor_financial_revenue_profitability_sections",
+  "info": {
+    "displayName": "FinancialRevenueProfitabilitySection"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "charts": {
+      "type": "component",
+      "component": "investor.financial-metric-chart",
+      "repeatable": true
+    },
+    "Financial_Document_Item": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "Contact Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "ContactInfoSection": {
+      "type": "component",
+      "component": "contact-us.contact-detail-card",
+      "repeatable": false
+    },
+    "GlobalPresenceSection": {
+      "type": "component",
+      "component": "contact-us.country-selector-card",
+      "repeatable": true
+    }
+  }
+}

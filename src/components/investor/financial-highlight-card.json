@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_investor_financial_highlight_cards",
+  "info": {
+    "displayName": "FinancialHighlightCard"
+  },
+  "options": {},
+  "attributes": {
+    "FinancialYear": {
+      "type": "string"
+    },
+    "GrossProfit": {
+      "type": "string"
+    },
+    "GrossProfitMargin": {
+      "type": "string"
+    },
+    "RndInvestment": {
+      "type": "string"
+    },
+    "DocumentFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ViewAllUrl": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

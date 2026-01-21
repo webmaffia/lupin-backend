@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sustainability_esg_framework_cards",
+  "info": {
+    "displayName": "ESGFrameworkCard"
+  },
+  "options": {},
+  "attributes": {
+    "CardTitle": {
+      "type": "string"
+    },
+    "GoalTitle": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "integer"
+    },
+    "GoalDescription": {
+      "type": "richtext"
+    },
+    "TargetYear": {
+      "type": "string"
+    },
+    "RightStatus": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
