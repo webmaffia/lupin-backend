@@ -15,9 +15,9 @@
       "component": "investor.integrated-report-card",
       "repeatable": false
     },
-    "NSE_EXCHNAGE": {
+    "NseExchangeSection": {
       "type": "component",
-      "component": "investor.document-selector",
+      "component": "investor.nse-exchnage-data",
       "repeatable": false
     }
   },

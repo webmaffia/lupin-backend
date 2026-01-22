@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "product_geographies",
+  "collectionName": "product_categories",
   "info": {
-    "singularName": "product-geography",
-    "pluralName": "product-geographies",
-    "displayName": "Product Geography"
+    "singularName": "product-category",
+    "pluralName": "product-categories",
+    "displayName": "Product Category"
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +18,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
-      "mappedBy": "geography"
+      "mappedBy": "category"
     }
   }
 }

@@ -503,6 +503,42 @@ export interface ApiAnalystCoverageAnalystCoverage
   };
 }
 
+export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'articles';
+  info: {
+    displayName: 'Article';
+    pluralName: 'articles';
+    singularName: 'article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    excerpt: Schema.Attribute.RichText;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    publishedOn: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.String;
+  };
+}
+
 export interface ApiAwardRecognitionAwardRecognition
   extends Struct.SingleTypeSchema {
   collectionName: 'award_recognitions';
@@ -534,39 +570,10 @@ export interface ApiAwardRecognitionAwardRecognition
   };
 }
 
-export interface ApiAwardAward extends Struct.CollectionTypeSchema {
-  collectionName: 'awards';
-  info: {
-    displayName: 'Award';
-    pluralName: 'awards';
-    singularName: 'award';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    AwardDescription: Schema.Attribute.RichText;
-    AwardYear: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    DisplayOrder: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::award.award'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Product Category';
+    displayName: 'Category';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -574,18 +581,19 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    CategoryName: Schema.Attribute.String;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    isActive: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -658,6 +666,34 @@ export interface ApiCommitteePageCommitteePage
     Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'MemberName'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCommitteeCommittee extends Struct.SingleTypeSchema {
+  collectionName: 'committees';
+  info: {
+    displayName: 'CommitteeBanner';
+    pluralName: 'committees';
+    singularName: 'committee';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::committee.committee'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1205,7 +1241,9 @@ export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Age: Schema.Attribute.String;
-    Appointed: Schema.Attribute.String;
+    Appointed: Schema.Attribute.Date;
+    audit_committee: Schema.Attribute.Boolean;
+    board_of_directors: Schema.Attribute.Boolean;
     CommitteeMembership: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1217,20 +1255,29 @@ export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
     EducationDetail: Schema.Attribute.RichText;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     LeaderName: Schema.Attribute.String;
-    LeadershipType: Schema.Attribute.Enumeration<['Board']>;
+    LeadershipType: Schema.Attribute.Enumeration<
+      ['Board', 'StrategyCommittee', 'AuditCommittee']
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::leader.leader'
     > &
       Schema.Attribute.Private;
+    management_team: Schema.Attribute.Boolean;
     Nationality: Schema.Attribute.String;
+    nomination_remuneration_committee: Schema.Attribute.Boolean;
     Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PdfTitle: Schema.Attribute.String;
     ProfileImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    risk_management_committee: Schema.Attribute.Boolean;
     slug: Schema.Attribute.UID<'LeaderName'>;
+    stakeholders_relationship_committee: Schema.Attribute.Boolean;
+    strategy_committee: Schema.Attribute.Boolean;
+    sustainability_csr_committee: Schema.Attribute.Boolean;
     Tenure: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1264,43 +1311,6 @@ export interface ApiMediaCoverageBannerMediaCoverageBanner
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMediaCoverageMediaCoverage
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'media_coverages';
-  info: {
-    displayName: 'Media Coverage';
-    pluralName: 'media-coverages';
-    singularName: 'media-coverage';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    isActive: Schema.Attribute.Boolean;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::media-coverage.media-coverage'
-    > &
-      Schema.Attribute.Private;
-    NewsLink: Schema.Attribute.Text;
-    NewsPdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    PosterImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    PublishedDate: Schema.Attribute.Date;
-    Title: Schema.Attribute.RichText;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    YoutubeEmbedLink: Schema.Attribute.String;
   };
 }
 
@@ -1633,42 +1643,6 @@ export interface ApiPerspectiveBannerPerspectiveBanner
   };
 }
 
-export interface ApiPerspectivePerspective extends Struct.CollectionTypeSchema {
-  collectionName: 'perspectives';
-  info: {
-    displayName: 'Perspective';
-    pluralName: 'perspectives';
-    singularName: 'perspective';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.RichText;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    DisplayOrder: Schema.Attribute.String;
-    DocumentPdf: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    isActive: Schema.Attribute.Boolean;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::perspective.perspective'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    PublishedDate: Schema.Attribute.Date;
-    ShortSummary: Schema.Attribute.RichText;
-    Title: Schema.Attribute.Text;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
   collectionName: 'policies';
   info: {
@@ -1730,12 +1704,13 @@ export interface ApiPressReleaseBannerPressReleaseBanner
   };
 }
 
-export interface ApiProductFormProductForm extends Struct.CollectionTypeSchema {
-  collectionName: 'product_forms';
+export interface ApiProductCategoryProductCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_categories';
   info: {
-    displayName: 'Product Form';
-    pluralName: 'product-forms';
-    singularName: 'product-form';
+    displayName: 'Product Category';
+    pluralName: 'product-categories';
+    singularName: 'product-category';
   };
   options: {
     draftAndPublish: true;
@@ -1744,14 +1719,14 @@ export interface ApiProductFormProductForm extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    FormName: Schema.Attribute.String;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::product-form.product-form'
+      'api::product-category.product-category'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1774,44 +1749,14 @@ export interface ApiProductGeographyProductGeography
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    GeographyName: Schema.Attribute.String;
-    isActive: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-geography.product-geography'
     > &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProductIngredientProductIngredient
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'product_ingredients';
-  info: {
-    displayName: 'Product Ingredient';
-    pluralName: 'product-ingredients';
-    singularName: 'product-ingredient';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    IngredientName: Schema.Attribute.String;
-    isActive: Schema.Attribute.Boolean;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product-ingredient.product-ingredient'
-    > &
-      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1834,15 +1779,57 @@ export interface ApiProductTherapyProductTherapy
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-therapy.product-therapy'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
-    TherapyName: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Struct.CollectionTypeSchema {
+  collectionName: 'products';
+  info: {
+    displayName: 'Product';
+    pluralName: 'products';
+    singularName: 'product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brandName: Schema.Attribute.Text;
+    category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::product-category.product-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    form: Schema.Attribute.String;
+    geography: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::product-geography.product-geography'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product.product'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    therapy: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::product-therapy.product-therapy'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2728,11 +2715,12 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::analyst-coverage.analyst-coverage': ApiAnalystCoverageAnalystCoverage;
+      'api::article.article': ApiArticleArticle;
       'api::award-recognition.award-recognition': ApiAwardRecognitionAwardRecognition;
-      'api::award.award': ApiAwardAward;
       'api::category.category': ApiCategoryCategory;
       'api::code-of-conduct.code-of-conduct': ApiCodeOfConductCodeOfConduct;
       'api::committee-page.committee-page': ApiCommitteePageCommitteePage;
+      'api::committee.committee': ApiCommitteeCommittee;
       'api::community.community': ApiCommunityCommunity;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::divedend.divedend': ApiDivedendDivedend;
@@ -2750,7 +2738,6 @@ declare module '@strapi/strapi' {
       'api::leader-page-banner.leader-page-banner': ApiLeaderPageBannerLeaderPageBanner;
       'api::leader.leader': ApiLeaderLeader;
       'api::media-coverage-banner.media-coverage-banner': ApiMediaCoverageBannerMediaCoverageBanner;
-      'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::media-kit.media-kit': ApiMediaKitMediaKit;
       'api::news-and-event.news-and-event': ApiNewsAndEventNewsAndEvent;
       'api::notice.notice': ApiNoticeNotice;
@@ -2760,13 +2747,12 @@ declare module '@strapi/strapi' {
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::our-value.our-value': ApiOurValueOurValue;
       'api::perspective-banner.perspective-banner': ApiPerspectiveBannerPerspectiveBanner;
-      'api::perspective.perspective': ApiPerspectivePerspective;
       'api::policy.policy': ApiPolicyPolicy;
       'api::press-release-banner.press-release-banner': ApiPressReleaseBannerPressReleaseBanner;
-      'api::product-form.product-form': ApiProductFormProductForm;
+      'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-geography.product-geography': ApiProductGeographyProductGeography;
-      'api::product-ingredient.product-ingredient': ApiProductIngredientProductIngredient;
       'api::product-therapy.product-therapy': ApiProductTherapyProductTherapy;
+      'api::product.product': ApiProductProduct;
       'api::redirect.redirect': ApiRedirectRedirect;
       'api::report-filing.report-filing': ApiReportFilingReportFiling;
       'api::saksham-niveshak.saksham-niveshak': ApiSakshamNiveshakSakshamNiveshak;

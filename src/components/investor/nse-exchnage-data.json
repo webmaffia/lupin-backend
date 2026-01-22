@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_investor_nse_exchnage_data",
+  "info": {
+    "displayName": "NseExchnageData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "PdfDocument": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

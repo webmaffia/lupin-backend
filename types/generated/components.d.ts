@@ -648,6 +648,7 @@ export interface InvestorFinancialHighlightCard extends Struct.ComponentSchema {
     displayName: 'FinancialHighlightCard';
   };
   attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
     DocumentFile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -780,6 +781,17 @@ export interface InvestorNoticeDocument extends Struct.ComponentSchema {
   };
 }
 
+export interface InvestorNseExchnageData extends Struct.ComponentSchema {
+  collectionName: 'components_investor_nse_exchnage_data';
+  info: {
+    displayName: 'NseExchnageData';
+  };
+  attributes: {
+    PdfDocument: Schema.Attribute.Component<'investor.pdfblock', true>;
+    SectionTitle: Schema.Attribute.String;
+  };
+}
+
 export interface InvestorOthersTab extends Struct.ComponentSchema {
   collectionName: 'components_investor_others_tabs';
   info: {
@@ -863,8 +875,8 @@ export interface InvestorReportsFilingsSection extends Struct.ComponentSchema {
       'investor.integrated-report-card',
       false
     >;
-    NSE_EXCHNAGE: Schema.Attribute.Component<
-      'investor.document-selector',
+    NseExchangeSection: Schema.Attribute.Component<
+      'investor.nse-exchnage-data',
       false
     >;
   };
@@ -1563,6 +1575,7 @@ declare module '@strapi/strapi' {
       'investor.investor-tips-shared-section-content': InvestorInvestorTipsSharedSectionContent;
       'investor.notice-card': InvestorNoticeCard;
       'investor.notice-document': InvestorNoticeDocument;
+      'investor.nse-exchnage-data': InvestorNseExchnageData;
       'investor.others-tab': InvestorOthersTab;
       'investor.pdfblock': InvestorPdfblock;
       'investor.pdfcomponent': InvestorPdfcomponent;

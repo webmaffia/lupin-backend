@@ -11,12 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "TherapyName": {
+    "name": {
       "type": "string"
     },
-    "isActive": {
-      "type": "boolean",
-      "default": true
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "therapy"
     }
   }
 }

@@ -34,7 +34,9 @@
     "LeadershipType": {
       "type": "enumeration",
       "enum": [
-        "Board"
+        "Board",
+        "StrategyCommittee",
+        "AuditCommittee"
       ]
     },
     "DetailDescription": {
@@ -50,9 +52,6 @@
       "type": "string"
     },
     "Tenure": {
-      "type": "string"
-    },
-    "Appointed": {
       "type": "string"
     },
     "CommitteeMembership": {
@@ -79,6 +78,36 @@
     },
     "DisplayOrder": {
       "type": "string"
+    },
+    "Appointed": {
+      "type": "date"
+    },
+    "PdfTitle": {
+      "type": "string"
+    },
+    "strategy_committee": {
+      "type": "boolean"
+    },
+    "audit_committee": {
+      "type": "boolean"
+    },
+    "stakeholders_relationship_committee": {
+      "type": "boolean"
+    },
+    "nomination_remuneration_committee": {
+      "type": "boolean"
+    },
+    "sustainability_csr_committee": {
+      "type": "boolean"
+    },
+    "risk_management_committee": {
+      "type": "boolean"
+    },
+    "board_of_directors": {
+      "type": "boolean"
+    },
+    "management_team": {
+      "type": "boolean"
     }
   }
 }
