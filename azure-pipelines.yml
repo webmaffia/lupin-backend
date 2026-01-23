@@ -6,46 +6,71 @@ trigger:
 
 pr: none
 
+################################
+#         VARIABLES
+################################
 variables:
-  azureServiceConnection: 'lupinglobal-sc'
-  resourceGroupName: 'RG-Lupin-CI'
-  nodeVersion: '20.x'
-  artifactName: 'drop'
-  zipName: 'backend.zip'
-  uatWebAppName: 'cms-lupin-uat'
-  prodWebAppName: 'cms-lupin-prd'
+  # ⭐ DB + Secrets from Library Variable Group ⭐
+  - group: var-group-uat
+
+  # Azure service connection
+  - name: azureServiceConnection
+    value: 'lupinglobal-sc'
+
+  # Node Version
+  - name: nodeVersion
+    value: '20.x'
+
+  # Artifact settings
+  - name: artifactName
+    value: 'drop'
+
+  - name: zipName
+    value: 'backend.zip'
+
+  # WebApp names
+  - name: uatWebAppName
+    value: 'cms-lupin-uat'
+
+  - name: prodWebAppName
+    value: 'cms-lupin-prd'
+
 
 stages:
 
+################################
+#       BUILD STAGE
+################################
 - stage: Build
-  displayName: Build Backend (Strapi)
+  displayName: "Build Backend (Strapi)"
   jobs:
     - job: BuildJob
-      displayName: Build
+      displayName: "Install & Build"
       pool:
-        vmImage: ubuntu-latest
+        vmImage: 'ubuntu-latest'
 
       steps:
         - checkout: self
           clean: true
 
         - task: NodeTool@0
-          displayName: Use Node.js $(nodeVersion)
           inputs:
             versionSpec: '$(nodeVersion)'
+          displayName: "Use Node $(nodeVersion)"
 
         - task: AdvancedSecurity-Codeql-Init@1
-          displayName: Initialize CodeQL
+          displayName: "Initialize CodeQL"
           inputs:
             languages: 'javascript'
             querysuite: 'security-and-quality'
             configfilepath: '$(Build.SourcesDirectory)/.github/codeql/codeql-config.yml'
 
         - task: AdvancedSecurity-Dependency-Scanning@1
-          displayName: Dependency Scanning
+          displayName: "Dependency Scanning"
 
         - script: |
             set -e
+
             echo "Node Version:"
             node -v
             echo "NPM Version:"
@@ -61,20 +86,37 @@ stages:
 
             echo "Building Strapi..."
             npm run build
-          displayName: Install & Build
+          displayName: "Install & Build Strapi"
           env:
             CI: "true"
 
+            # Required DB ENV for Strapi build
+            DATABASE_CLIENT: $(DATABASE_CLIENT)
+            DATABASE_HOST: $(DATABASE_HOST)
+            DATABASE_PORT: $(DATABASE_PORT)
+            DATABASE_NAME: $(DATABASE_NAME)
+            DATABASE_USERNAME: $(DATABASE_USERNAME)
+            DATABASE_PASSWORD: $(DATABASE_PASSWORD)
+            DATABASE_SSL: $(DATABASE_SSL)
+
+            # Optional
+            NODE_ENV: $(NODE_ENV)
+            APP_KEYS: $(APP_KEYS)
+            API_TOKEN_SALT: $(API_TOKEN_SALT)
+            ADMIN_JWT_SECRET: $(ADMIN_JWT_SECRET)
+            JWT_SECRET: $(JWT_SECRET)
+            TRANSFER_TOKEN_SALT: $(TRANSFER_TOKEN_SALT)
+
         - task: AdvancedSecurity-Codeql-Analyze@1
-          displayName: Run CodeQL Analysis
+          displayName: "Perform CodeQL Analysis"
 
         - task: ArchiveFiles@2
-          displayName: Create deployment zip
+          displayName: "Archive Backend Output"
           inputs:
-            rootFolderOrFile: '$(Build.SourcesDirectory)'
+            rootFolderOrFile: "$(Build.SourcesDirectory)"
             includeRootFolder: false
             archiveType: zip
-            archiveFile: '$(Build.ArtifactStagingDirectory)/$(zipName)'
+            archiveFile: "$(Build.ArtifactStagingDirectory)/$(zipName)"
             replaceExistingArchive: true
             excludePatterns: |
               **/.git/**
@@ -83,67 +125,77 @@ stages:
               **/.env.*
               **/*.log
               **/coverage/**
+              **/.cache/**
+              **/.tmp/**
 
         - task: PublishPipelineArtifact@1
-          displayName: Publish build artifact
+          displayName: "Publish Artifact"
           inputs:
-            targetPath: '$(Build.ArtifactStagingDirectory)/$(zipName)'
-            artifact: '$(artifactName)'
+            targetPath: "$(Build.ArtifactStagingDirectory)/$(zipName)"
+            artifact: "$(artifactName)"
 
+
+################################
+#       UAT DEPLOYMENT
+################################
 - stage: Deploy_UAT
-  displayName: Deploy to UAT
+  displayName: "Deploy to UAT"
   dependsOn: Build
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
 
   jobs:
     - deployment: DeployUAT
-      displayName: Deploy CMS to UAT
-      environment: uat
+      displayName: "Deploy CMS to UAT Web App"
+      environment: "uat"
       strategy:
         runOnce:
           deploy:
             steps:
               - task: DownloadPipelineArtifact@2
-                displayName: Download build artifact
+                displayName: "Download Artifact"
                 inputs:
-                  buildType: 'current'
-                  artifact: '$(artifactName)'
-                  path: '$(Pipeline.Workspace)'
+                  buildType: "current"
+                  artifact: "$(artifactName)"
+                  path: "$(Pipeline.Workspace)"
 
               - task: AzureWebApp@1
-                displayName: Deploy to Azure Web App (UAT)
+                displayName: "Deploy Strapi to UAT"
                 inputs:
-                  azureSubscription: '$(azureServiceConnection)'
+                  azureSubscription: "$(azureServiceConnection)"
                   appType: webAppLinux
-                  appName: '$(uatWebAppName)'
-                  package: '$(Pipeline.Workspace)/$(artifactName)/$(zipName)'
-                  startUpCommand: 'node node_modules/@strapi/strapi/bin/strapi.js start'
+                  appName: "$(uatWebAppName)"
+                  package: "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
+                  startUpCommand: "node node_modules/@strapi/strapi/bin/strapi.js start"
 
+
+################################
+#       PROD DEPLOYMENT
+################################
 - stage: Deploy_Prod
-  displayName: Deploy to Production
+  displayName: "Deploy to Production"
   dependsOn: Build
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 
   jobs:
     - deployment: DeployProd
-      displayName: Deploy CMS to Production
-      environment: prod
+      displayName: "Deploy CMS to PROD Web App"
+      environment: "prod"
       strategy:
         runOnce:
           deploy:
             steps:
               - task: DownloadPipelineArtifact@2
-                displayName: Download build artifact
+                displayName: "Download Artifact"
                 inputs:
-                  buildType: 'current'
-                  artifact: '$(artifactName)'
-                  path: '$(Pipeline.Workspace)'
+                  buildType: "current"
+                  artifact: "$(artifactName)"
+                  path: "$(Pipeline.Workspace)"
 
               - task: AzureWebApp@1
-                displayName: Deploy to Azure Web App (PROD)
+                displayName: "Deploy Strapi to PROD"
                 inputs:
-                  azureSubscription: '$(azureServiceConnection)'
+                  azureSubscription: "$(azureServiceConnection)"
                   appType: webAppLinux
-                  appName: '$(prodWebAppName)'
-                  package: '$(Pipeline.Workspace)/$(artifactName)/$(zipName)'
-                  startUpCommand: 'node node_modules/@strapi/strapi/bin/strapi.js start'
+                  appName: "$(prodWebAppName)"
+                  package: "$(Pipeline.Workspace)/$(artifactName)/$(zipName)"
+                  startUpCommand: "node node_modules/@strapi/strapi/bin/strapi.js start"
