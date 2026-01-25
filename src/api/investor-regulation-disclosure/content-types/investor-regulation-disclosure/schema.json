@@ -16,6 +16,11 @@
       "component": "shared.image",
       "repeatable": false
     },
+    "DisclosureIntroSection": {
+      "type": "component",
+      "component": "investor.disclouser-intro-data",
+      "repeatable": false
+    },
     "RegulationDisclosureSection": {
       "type": "component",
       "component": "investor.regulation-disclosure-item",

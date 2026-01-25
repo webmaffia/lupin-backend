@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_manufacturing_approach_gto_tabs",
+  "info": {
+    "displayName": "GTOTab"
+  },
+  "options": {},
+  "attributes": {
+    "TabName": {
+      "type": "string"
+    },
+    "GtoStructureCardData": {
+      "type": "component",
+      "component": "global-technical-operation.gto-structure-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

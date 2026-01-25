@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "branded_emerging_markets_p",
+  "info": {
+    "singularName": "branded-emerging-markets",
+    "pluralName": "branded-emerging-markets-p",
+    "displayName": "Branded Emerging Markets"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "branded-emerging-markets.description",
+      "repeatable": false
+    },
+    "markets": {
+      "type": "component",
+      "component": "branded-emerging-markets.markets",
+      "repeatable": false
+    },
+    "globalInstitutionalBusiness": {
+      "type": "component",
+      "component": "branded-emerging-markets.global-institutional-business",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_india_our_digital_initiatives",
+  "info": {
+    "displayName": "Our Digital Initiatives"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

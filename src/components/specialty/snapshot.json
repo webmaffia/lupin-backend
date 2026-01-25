@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_specialty_snapshots",
+  "info": {
+    "displayName": "Snapshot"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "moreInfo": {
+      "type": "component",
+      "component": "specialty.more-info",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

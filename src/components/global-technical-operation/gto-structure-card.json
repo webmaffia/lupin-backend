@@ -22,7 +22,16 @@
       ]
     },
     "cta": {
-      "type": "string"
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "Image_Position": {
+      "type": "enumeration",
+      "enum": [
+        "Left",
+        "Right"
+      ]
     }
   },
   "config": {}

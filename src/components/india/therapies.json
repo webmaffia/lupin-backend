@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_india_therapies",
+  "info": {
+    "displayName": "Therapies"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "therapyTab": {
+      "type": "component",
+      "component": "india.therapy-tab",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

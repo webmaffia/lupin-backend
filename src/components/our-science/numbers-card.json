@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_our_science_numbers_cards",
+  "info": {
+    "displayName": "NumbersCard"
+  },
+  "options": {},
+  "attributes": {
+    "SvgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Value": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Suffix": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

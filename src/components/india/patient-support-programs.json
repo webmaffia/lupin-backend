@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_india_patient_support_programs",
+  "info": {
+    "displayName": "Patient Support Programs"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

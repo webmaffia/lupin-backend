@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "indias",
+  "info": {
+    "singularName": "india",
+    "pluralName": "indias",
+    "displayName": "India"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "overview": {
+      "type": "component",
+      "component": "india.overview",
+      "repeatable": false
+    },
+    "IndiaAtAGlance": {
+      "type": "component",
+      "component": "india.india-at-a-glance",
+      "repeatable": false
+    },
+    "WhatWeDo": {
+      "type": "component",
+      "component": "india.what-we-do",
+      "repeatable": false
+    },
+    "therapies": {
+      "type": "component",
+      "component": "india.therapies",
+      "repeatable": false
+    },
+    "patientSupportPrograms": {
+      "type": "component",
+      "component": "india.patient-support-programs",
+      "repeatable": false
+    }
+  }
+}

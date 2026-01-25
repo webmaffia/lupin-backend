@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_allied_business_intros",
+  "info": {
+    "displayName": "Intro"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

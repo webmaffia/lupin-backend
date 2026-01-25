@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_patient_support_programs_looking_aheads",
+  "info": {
+    "displayName": "Looking Ahead"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_allied_business_looking_aheads",
+  "info": {
+    "displayName": "Looking Ahead"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

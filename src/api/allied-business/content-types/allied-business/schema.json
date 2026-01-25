@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "allied_businesses_p",
+  "info": {
+    "singularName": "allied-business",
+    "pluralName": "allied-businesses-p",
+    "displayName": "Allied Business"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "intro": {
+      "type": "component",
+      "component": "allied-business.intro",
+      "repeatable": false
+    },
+    "business": {
+      "type": "component",
+      "component": "allied-business.business",
+      "repeatable": true
+    },
+    "lookingAhead": {
+      "type": "component",
+      "component": "allied-business.looking-ahead",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_generics_regional_presences",
+  "info": {
+    "displayName": "Regional Presence"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "card": {
+      "type": "component",
+      "component": "global-generics.card",
+      "repeatable": true
+    },
+    "cardColor": {
+      "type": "enumeration",
+      "default": "Light",
+      "enum": [
+        "Light",
+        "Dark"
+      ]
+    }
+  },
+  "config": {}
+}

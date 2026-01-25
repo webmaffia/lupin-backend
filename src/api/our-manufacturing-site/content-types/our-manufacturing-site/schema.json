@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_manufacturing_sites",
+  "info": {
+    "singularName": "our-manufacturing-site",
+    "pluralName": "our-manufacturing-sites",
+    "displayName": "Our Manufacturing Site"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "IntroSection": {
+      "type": "component",
+      "component": "our-manufacturing-sites.intro-section",
+      "repeatable": false
+    },
+    "CountryAddressSection": {
+      "type": "component",
+      "component": "our-manufacturing-sites.country-card-data",
+      "repeatable": false
+    },
+    "NorthAmericaSection": {
+      "type": "component",
+      "component": "our-manufacturing-sites.international-country-data",
+      "repeatable": false
+    },
+    "LatamSection": {
+      "type": "component",
+      "component": "our-manufacturing-sites.international-country-data",
+      "repeatable": false
+    }
+  }
+}

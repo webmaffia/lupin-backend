@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_investor_disclouser_intro_data",
+  "info": {
+    "displayName": "DisclouserIntroData"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

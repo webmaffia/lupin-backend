@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_branded_emerging_markets_markets",
+  "info": {
+    "displayName": "Markets"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "marketCard": {
+      "type": "component",
+      "component": "branded-emerging-markets.market-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

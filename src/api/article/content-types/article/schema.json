@@ -15,7 +15,8 @@
       "type": "text"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "media": {
       "type": "media",
@@ -47,6 +48,10 @@
     },
     "link": {
       "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

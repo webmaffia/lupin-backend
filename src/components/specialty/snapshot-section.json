@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_specialty_snapshot_sections",
+  "info": {
+    "displayName": "Snapshot Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "snapshot": {
+      "type": "component",
+      "component": "specialty.snapshot",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_generics_cards",
+  "info": {
+    "displayName": "Card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "highlights": {
+      "type": "component",
+      "component": "global-generics.highlights",
+      "repeatable": true
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

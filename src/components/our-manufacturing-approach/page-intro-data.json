@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_our_manufacturing_approach_page_intro_data",
+  "info": {
+    "displayName": "PageIntroData"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "PetalImageSvg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

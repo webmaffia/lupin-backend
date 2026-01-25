@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "our_businesses",
   "info": {
     "singularName": "our-business",
@@ -11,42 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "TopBanner": {
+    "hero": {
       "type": "component",
       "component": "shared.image",
       "repeatable": false
     },
-    "BrandName": {
-      "type": "string"
-    },
-    "ThumbnailImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "ShortSummary": {
-      "type": "richtext"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "BrandName"
-    },
-    "PageIntroSection": {
-      "type": "richtext"
-    },
-    "SectionDetail": {
+    "Offering": {
       "type": "component",
-      "component": "our-business.section-detail-card",
-      "repeatable": false
-    },
-    "CountryDetails": {
-      "type": "component",
-      "component": "our-business.business-country-card",
+      "component": "our-business.offering",
       "repeatable": true
     }
   }

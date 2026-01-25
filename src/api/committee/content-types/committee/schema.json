@@ -4,7 +4,7 @@
   "info": {
     "singularName": "committee",
     "pluralName": "committees",
-    "displayName": "CommitteeBanner"
+    "displayName": "Committee"
   },
   "options": {
     "draftAndPublish": true

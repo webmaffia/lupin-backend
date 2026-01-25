@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_investor_code_conduct_document_data",
+  "info": {
+    "displayName": "CodeConductDocumentData"
+  },
+  "options": {},
+  "attributes": {
+    "PdfTitle": {
+      "type": "string"
+    },
+    "Pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PublishedDate": {
+      "type": "date"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "LangaugePdfDocument": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

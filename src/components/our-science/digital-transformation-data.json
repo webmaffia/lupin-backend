@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_our_science_digital_transformation_data",
+  "info": {
+    "displayName": "DigitalTransformationData"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "LeftSideContent": {
+      "type": "string"
+    },
+    "RightSideContent": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

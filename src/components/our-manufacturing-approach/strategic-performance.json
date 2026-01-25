@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_our_manufacturing_approach_strategic_performances",
+  "info": {
+    "displayName": "StrategicPerformance"
+  },
+  "options": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PerformanceAreaData": {
+      "type": "component",
+      "component": "global-technical-operation.performance-area-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

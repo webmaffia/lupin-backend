@@ -31,14 +31,6 @@
     "Designation": {
       "type": "string"
     },
-    "LeadershipType": {
-      "type": "enumeration",
-      "enum": [
-        "Board",
-        "StrategyCommittee",
-        "AuditCommittee"
-      ]
-    },
     "DetailDescription": {
       "type": "richtext"
     },

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_india_highlights",
+  "info": {
+    "displayName": "Highlights"
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

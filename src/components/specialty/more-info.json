@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_specialty_more_infos",
+  "info": {
+    "displayName": "More Info"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

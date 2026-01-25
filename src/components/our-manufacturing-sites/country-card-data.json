@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_manufacturing_sites_country_card_data",
+  "info": {
+    "displayName": "CountryCardData"
+  },
+  "options": {},
+  "attributes": {
+    "CountryName": {
+      "type": "string"
+    },
+    "CityAddressSection": {
+      "type": "component",
+      "component": "our-manufacturing-sites.city-address-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

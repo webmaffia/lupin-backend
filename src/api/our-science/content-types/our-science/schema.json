@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_sciences",
+  "info": {
+    "singularName": "our-science",
+    "pluralName": "our-sciences",
+    "displayName": "Our Science"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "IntroSection": {
+      "type": "component",
+      "component": "our-science.intro-section",
+      "repeatable": false
+    },
+    "NumberHighLightsSection": {
+      "type": "component",
+      "component": "our-science.numbers-card-data",
+      "repeatable": false
+    },
+    "ResearchDevelopmentSection": {
+      "type": "component",
+      "component": "our-science.research-data",
+      "repeatable": false
+    },
+    "DigitalTransformationSection": {
+      "type": "component",
+      "component": "our-science.digital-transformation-data",
+      "repeatable": false
+    },
+    "ParaGraphSection": {
+      "type": "component",
+      "component": "our-science.comment-data",
+      "repeatable": false
+    },
+    "CoreSection": {
+      "type": "component",
+      "component": "our-science.core-card",
+      "repeatable": true
+    },
+    "ContentSection": {
+      "type": "component",
+      "component": "our-science.comment-data",
+      "repeatable": false
+    }
+  }
+}

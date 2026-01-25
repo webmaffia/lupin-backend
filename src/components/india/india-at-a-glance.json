@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_india_india_at_a_glances",
+  "info": {
+    "displayName": "India at a Glance"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "feature": {
+      "type": "component",
+      "component": "india.highlights",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

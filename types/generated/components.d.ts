@@ -38,6 +38,94 @@ export interface AboutUsRedirectCard extends Struct.ComponentSchema {
   };
 }
 
+export interface AlliedBusinessBusiness extends Struct.ComponentSchema {
+  collectionName: 'components_allied_business_businesses';
+  info: {
+    displayName: 'Business';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AlliedBusinessIntro extends Struct.ComponentSchema {
+  collectionName: 'components_allied_business_intros';
+  info: {
+    displayName: 'Intro';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+  };
+}
+
+export interface AlliedBusinessLookingAhead extends Struct.ComponentSchema {
+  collectionName: 'components_allied_business_looking_aheads';
+  info: {
+    displayName: 'Looking Ahead';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BrandedEmergingMarketsDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_branded_emerging_markets_descriptions';
+  info: {
+    displayName: 'Description';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+  };
+}
+
+export interface BrandedEmergingMarketsGlobalInstitutionalBusiness
+  extends Struct.ComponentSchema {
+  collectionName: 'components_branded_emerging_markets_global_institutional_businesses';
+  info: {
+    displayName: 'Global Institutional Business';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BrandedEmergingMarketsMarketCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_branded_emerging_markets_market_cards';
+  info: {
+    displayName: 'Market Card';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'files' | 'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BrandedEmergingMarketsMarkets extends Struct.ComponentSchema {
+  collectionName: 'components_branded_emerging_markets_markets';
+  info: {
+    displayName: 'Markets';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    marketCard: Schema.Attribute.Component<
+      'branded-emerging-markets.market-card',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CommunityImageContentCard extends Struct.ComponentSchema {
   collectionName: 'components_community_image_content_cards';
   info: {
@@ -90,6 +178,7 @@ export interface CommunityImpactMetricCard extends Struct.ComponentSchema {
   attributes: {
     Description: Schema.Attribute.String;
     Icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Suffix: Schema.Attribute.String;
     Value: Schema.Attribute.BigInteger;
   };
 }
@@ -246,6 +335,107 @@ export interface EthicsAndComplianceIntroSection
   };
 }
 
+export interface GlobalGenericsCard extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    highlights: Schema.Attribute.Component<'global-generics.highlights', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalGenericsDescription extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_descriptions';
+  info: {
+    displayName: 'Description';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+  };
+}
+
+export interface GlobalGenericsGenericsAndComplexGenerics
+  extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_generics_and_complex_generics';
+  info: {
+    displayName: 'Generics And Complex Generics';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    subSectionOne: Schema.Attribute.Component<
+      'global-generics.sub-section-one',
+      false
+    >;
+    subSectionTwo: Schema.Attribute.Component<
+      'global-generics.sub-section-two',
+      false
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalGenericsHighlights extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_highlights';
+  info: {
+    displayName: 'Highlights';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalGenericsOurInhalationBusiness
+  extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_our_inhalation_businesses';
+  info: {
+    displayName: 'Our Inhalation Business';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalGenericsRegionalPresence extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_regional_presences';
+  info: {
+    displayName: 'Regional Presence';
+  };
+  attributes: {
+    card: Schema.Attribute.Component<'global-generics.card', true>;
+    cardColor: Schema.Attribute.Enumeration<['Light', 'Dark']> &
+      Schema.Attribute.DefaultTo<'Light'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalGenericsSubSectionOne extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_sub_section_ones';
+  info: {
+    displayName: 'Sub Section One';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'files' | 'images'>;
+  };
+}
+
+export interface GlobalGenericsSubSectionTwo extends Struct.ComponentSchema {
+  collectionName: 'components_global_generics_sub_section_twos';
+  info: {
+    displayName: 'Sub Section Two';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface GlobalPresenceIntroSection extends Struct.ComponentSchema {
   collectionName: 'components_global_presence_intro_sections';
   info: {
@@ -280,9 +470,10 @@ export interface GlobalTechnicalOperationGtoStructureCard
     displayName: 'GTOStructureCard';
   };
   attributes: {
-    cta: Schema.Attribute.String;
+    cta: Schema.Attribute.Component<'shared.cta', false>;
     Heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image_Position: Schema.Attribute.Enumeration<['Left', 'Right']>;
     SubHeading: Schema.Attribute.Blocks;
   };
 }
@@ -454,6 +645,102 @@ export interface HomepageSustainability extends Struct.ComponentSchema {
   };
 }
 
+export interface IndiaHighlights extends Struct.ComponentSchema {
+  collectionName: 'components_india_highlights';
+  info: {
+    displayName: 'Highlights';
+  };
+  attributes: {
+    feature: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaIndiaAtAGlance extends Struct.ComponentSchema {
+  collectionName: 'components_india_india_at_a_glances';
+  info: {
+    displayName: 'India at a Glance';
+  };
+  attributes: {
+    feature: Schema.Attribute.Component<'india.highlights', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaOurDigitalInitiatives extends Struct.ComponentSchema {
+  collectionName: 'components_india_our_digital_initiatives';
+  info: {
+    displayName: 'Our Digital Initiatives';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', true>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaOverview extends Struct.ComponentSchema {
+  collectionName: 'components_india_overviews';
+  info: {
+    displayName: 'Overview';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaPatientSupportPrograms extends Struct.ComponentSchema {
+  collectionName: 'components_india_patient_support_programs';
+  info: {
+    displayName: 'Patient Support Programs';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaTherapies extends Struct.ComponentSchema {
+  collectionName: 'components_india_therapies';
+  info: {
+    displayName: 'Therapies';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    therapyTab: Schema.Attribute.Component<'india.therapy-tab', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaTherapyTab extends Struct.ComponentSchema {
+  collectionName: 'components_india_therapy_tabs';
+  info: {
+    displayName: 'Therapy Tab';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndiaWhatWeDo extends Struct.ComponentSchema {
+  collectionName: 'components_india_what_we_dos';
+  info: {
+    displayName: 'What We Do';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    ourDigitalInitiatives: Schema.Attribute.Component<
+      'india.our-digital-initiatives',
+      false
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface InvestorAgmEventCard extends Struct.ComponentSchema {
   collectionName: 'components_investor_agm_event_cards';
   info: {
@@ -465,8 +752,10 @@ export interface InvestorAgmEventCard extends Struct.ComponentSchema {
     MeetingDate: Schema.Attribute.Date;
     MeetingTitle: Schema.Attribute.Text;
     Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PosterImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     VideoFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    VideoUrl: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -526,6 +815,21 @@ export interface InvestorBoardTab extends Struct.ComponentSchema {
   };
 }
 
+export interface InvestorCodeConductDocumentData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_investor_code_conduct_document_data';
+  info: {
+    displayName: 'CodeConductDocumentData';
+  };
+  attributes: {
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    LangaugePdfDocument: Schema.Attribute.Component<'investor.pdfblock', true>;
+    Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PdfTitle: Schema.Attribute.String;
+    PublishedDate: Schema.Attribute.Date;
+  };
+}
+
 export interface InvestorDisclosureDocumentLink extends Struct.ComponentSchema {
   collectionName: 'components_investor_disclosure_document_links';
   info: {
@@ -538,6 +842,17 @@ export interface InvestorDisclosureDocumentLink extends Struct.ComponentSchema {
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Label: Schema.Attribute.String;
     Url: Schema.Attribute.Text;
+  };
+}
+
+export interface InvestorDisclouserIntroData extends Struct.ComponentSchema {
+  collectionName: 'components_investor_disclouser_intro_data';
+  info: {
+    displayName: 'DisclouserIntroData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    SectionTitle: Schema.Attribute.String;
   };
 }
 
@@ -753,6 +1068,16 @@ export interface InvestorInvestorTipsSharedSectionContent
   };
 }
 
+export interface InvestorLangaugePdf extends Struct.ComponentSchema {
+  collectionName: 'components_investor_langauge_pdfs';
+  info: {
+    displayName: 'LangaugePdf';
+  };
+  attributes: {
+    LangaugePdfSection: Schema.Attribute.Component<'investor.pdfblock', true>;
+  };
+}
+
 export interface InvestorNoticeCard extends Struct.ComponentSchema {
   collectionName: 'components_investor_notice_cards';
   info: {
@@ -787,6 +1112,7 @@ export interface InvestorNseExchnageData extends Struct.ComponentSchema {
     displayName: 'NseExchnageData';
   };
   attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
     PdfDocument: Schema.Attribute.Component<'investor.pdfblock', true>;
     SectionTitle: Schema.Attribute.String;
   };
@@ -933,12 +1259,17 @@ export interface InvestorSubsidiaryItem extends Struct.ComponentSchema {
     displayName: 'SubsidiaryItem';
   };
   attributes: {
+    AnnualReturnsPdf: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     DisplayOrder: Schema.Attribute.String;
     Documents: Schema.Attribute.Component<
       'investor.subsidiary-yearly-document',
       true
     >;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    PdfTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'AnnualReturns'>;
     SubsidiaryName: Schema.Attribute.Text;
   };
 }
@@ -1001,6 +1332,19 @@ export interface OurBusinessBusinessCountryCard extends Struct.ComponentSchema {
   };
 }
 
+export interface OurBusinessOffering extends Struct.ComponentSchema {
+  collectionName: 'components_our_business_offerings';
+  info: {
+    displayName: 'Offering';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface OurBusinessSectionDetailCard extends Struct.ComponentSchema {
   collectionName: 'components_our_business_section_detail_cards';
   info: {
@@ -1009,6 +1353,139 @@ export interface OurBusinessSectionDetailCard extends Struct.ComponentSchema {
   attributes: {
     Heading: Schema.Attribute.String;
     SubHeading: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurManufacturingApproachCommentData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_approach_comment_data';
+  info: {
+    displayName: 'CommentData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    ParagraphDescription: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurManufacturingApproachGtoSectionData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_approach_gto_section_data';
+  info: {
+    displayName: 'GtoSectionData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    GtoStructureSection: Schema.Attribute.Component<
+      'our-manufacturing-approach.gto-tab',
+      true
+    >;
+    Heading: Schema.Attribute.String;
+    PetalImageSvg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    SubHeading: Schema.Attribute.Text;
+  };
+}
+
+export interface OurManufacturingApproachGtoTab extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_approach_gto_tabs';
+  info: {
+    displayName: 'GTOTab';
+  };
+  attributes: {
+    GtoStructureCardData: Schema.Attribute.Component<
+      'global-technical-operation.gto-structure-card',
+      true
+    >;
+    TabName: Schema.Attribute.String;
+  };
+}
+
+export interface OurManufacturingApproachPageIntroData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_approach_page_intro_data';
+  info: {
+    displayName: 'PageIntroData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.Text;
+    PetalImageSvg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+  };
+}
+
+export interface OurManufacturingApproachStrategicPerformance
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_approach_strategic_performances';
+  info: {
+    displayName: 'StrategicPerformance';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PerformanceAreaData: Schema.Attribute.Component<
+      'global-technical-operation.performance-area-card',
+      true
+    >;
+    SectionTitle: Schema.Attribute.String;
+  };
+}
+
+export interface OurManufacturingSitesCityAddressCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_sites_city_address_cards';
+  info: {
+    displayName: 'CityAddressCard';
+  };
+  attributes: {
+    AddressDetail: Schema.Attribute.RichText;
+    CityName: Schema.Attribute.String;
+    Description: Schema.Attribute.String;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface OurManufacturingSitesCountryCardData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_sites_country_card_data';
+  info: {
+    displayName: 'CountryCardData';
+  };
+  attributes: {
+    CityAddressSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.city-address-card',
+      true
+    >;
+    CountryName: Schema.Attribute.String;
+  };
+}
+
+export interface OurManufacturingSitesInternationalCountryData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_sites_international_country_data';
+  info: {
+    displayName: 'InternationalCountryData';
+  };
+  attributes: {
+    CityAddressSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.city-address-card',
+      true
+    >;
+    CountryName: Schema.Attribute.String;
+  };
+}
+
+export interface OurManufacturingSitesIntroSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_manufacturing_sites_intro_sections';
+  info: {
+    displayName: 'IntroSectionData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
   };
 }
 
@@ -1057,6 +1534,94 @@ export interface OurPurposeTreatmentCard extends Struct.ComponentSchema {
     Heading: Schema.Attribute.RichText;
     image: Schema.Attribute.Component<'shared.global-image', false>;
     ParaGraphDescription: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurScienceCommentData extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_comment_data';
+  info: {
+    displayName: 'CommentData';
+  };
+  attributes: {
+    ParagarphData: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurScienceCoreCard extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_core_cards';
+  info: {
+    displayName: 'CoreCard';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    ImageSvg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Svg_position: Schema.Attribute.Enumeration<['Top', 'Bottom']>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface OurScienceDigitalTransformationData
+  extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_digital_transformation_data';
+  info: {
+    displayName: 'DigitalTransformationData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    LeftSideContent: Schema.Attribute.String;
+    RightSideContent: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurScienceIntroSection extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_intro_sections';
+  info: {
+    displayName: 'IntroSectionData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+  };
+}
+
+export interface OurScienceNumbersCard extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_numbers_cards';
+  info: {
+    displayName: 'NumbersCard';
+  };
+  attributes: {
+    Description: Schema.Attribute.String;
+    Suffix: Schema.Attribute.String;
+    SvgImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Value: Schema.Attribute.String;
+  };
+}
+
+export interface OurScienceNumbersCardData extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_numbers_card_data';
+  info: {
+    displayName: 'NumbersCardData';
+  };
+  attributes: {
+    BackGroundImage: Schema.Attribute.Component<'shared.global-image', false>;
+    NumbersCardSection: Schema.Attribute.Component<
+      'our-science.numbers-card',
+      true
+    >;
+  };
+}
+
+export interface OurScienceResearchData extends Struct.ComponentSchema {
+  collectionName: 'components_our_science_research_data';
+  info: {
+    displayName: 'ResearchData';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -1163,6 +1728,41 @@ export interface OurValueIntroOurValue extends Struct.ComponentSchema {
   };
 }
 
+export interface PatientSupportProgramsCard extends Struct.ComponentSchema {
+  collectionName: 'components_patient_support_programs_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    logo: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface PatientSupportProgramsIntro extends Struct.ComponentSchema {
+  collectionName: 'components_patient_support_programs_intros';
+  info: {
+    displayName: 'Intro';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface PatientSupportProgramsLookingAhead
+  extends Struct.ComponentSchema {
+  collectionName: 'components_patient_support_programs_looking_aheads';
+  info: {
+    displayName: 'Looking Ahead';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedCta extends Struct.ComponentSchema {
   collectionName: 'components_shared_ctas';
   info: {
@@ -1254,6 +1854,62 @@ export interface SharedNewsCard extends Struct.ComponentSchema {
     cta: Schema.Attribute.Component<'shared.cta', false>;
     date: Schema.Attribute.String;
     headline: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedSummary extends Struct.ComponentSchema {
+  collectionName: 'components_shared_summaries';
+  info: {
+    displayName: 'summary';
+  };
+  attributes: {
+    summary: Schema.Attribute.RichText;
+  };
+}
+
+export interface SpecialtyIntro extends Struct.ComponentSchema {
+  collectionName: 'components_specialty_intros';
+  info: {
+    displayName: 'Intro';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+  };
+}
+
+export interface SpecialtyMoreInfo extends Struct.ComponentSchema {
+  collectionName: 'components_specialty_more_infos';
+  info: {
+    displayName: 'More Info';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+  };
+}
+
+export interface SpecialtySnapshot extends Struct.ComponentSchema {
+  collectionName: 'components_specialty_snapshots';
+  info: {
+    displayName: 'Snapshot';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    moreInfo: Schema.Attribute.Component<'specialty.more-info', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SpecialtySnapshotSection extends Struct.ComponentSchema {
+  collectionName: 'components_specialty_snapshot_sections';
+  info: {
+    displayName: 'Snapshot Section';
+  };
+  attributes: {
+    snapshot: Schema.Attribute.Component<'specialty.snapshot', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -1519,6 +2175,13 @@ declare module '@strapi/strapi' {
       'about-us.about-overview-card': AboutUsAboutOverviewCard;
       'about-us.intro-section': AboutUsIntroSection;
       'about-us.redirect-card': AboutUsRedirectCard;
+      'allied-business.business': AlliedBusinessBusiness;
+      'allied-business.intro': AlliedBusinessIntro;
+      'allied-business.looking-ahead': AlliedBusinessLookingAhead;
+      'branded-emerging-markets.description': BrandedEmergingMarketsDescription;
+      'branded-emerging-markets.global-institutional-business': BrandedEmergingMarketsGlobalInstitutionalBusiness;
+      'branded-emerging-markets.market-card': BrandedEmergingMarketsMarketCard;
+      'branded-emerging-markets.markets': BrandedEmergingMarketsMarkets;
       'community.image-content-card': CommunityImageContentCard;
       'community.impact-header': CommunityImpactHeader;
       'community.impact-heading-card': CommunityImpactHeadingCard;
@@ -1534,6 +2197,14 @@ declare module '@strapi/strapi' {
       'contact-us.contact-info-card': ContactUsContactInfoCard;
       'contact-us.country-selector-card': ContactUsCountrySelectorCard;
       'ethics-and-compliance.intro-section': EthicsAndComplianceIntroSection;
+      'global-generics.card': GlobalGenericsCard;
+      'global-generics.description': GlobalGenericsDescription;
+      'global-generics.generics-and-complex-generics': GlobalGenericsGenericsAndComplexGenerics;
+      'global-generics.highlights': GlobalGenericsHighlights;
+      'global-generics.our-inhalation-business': GlobalGenericsOurInhalationBusiness;
+      'global-generics.regional-presence': GlobalGenericsRegionalPresence;
+      'global-generics.sub-section-one': GlobalGenericsSubSectionOne;
+      'global-generics.sub-section-two': GlobalGenericsSubSectionTwo;
       'global-presence.intro-section': GlobalPresenceIntroSection;
       'global-presence.presence-card': GlobalPresencePresenceCard;
       'global-technical-operation.gto-structure-card': GlobalTechnicalOperationGtoStructureCard;
@@ -1551,13 +2222,23 @@ declare module '@strapi/strapi' {
       'homepage.section': HomepageSection;
       'homepage.stats': HomepageStats;
       'homepage.sustainability': HomepageSustainability;
+      'india.highlights': IndiaHighlights;
+      'india.india-at-a-glance': IndiaIndiaAtAGlance;
+      'india.our-digital-initiatives': IndiaOurDigitalInitiatives;
+      'india.overview': IndiaOverview;
+      'india.patient-support-programs': IndiaPatientSupportPrograms;
+      'india.therapies': IndiaTherapies;
+      'india.therapy-tab': IndiaTherapyTab;
+      'india.what-we-do': IndiaWhatWeDo;
       'investor.agm-event-card': InvestorAgmEventCard;
       'investor.analyst-card': InvestorAnalystCard;
       'investor.analyst-coverage-item': InvestorAnalystCoverageItem;
       'investor.annual-report': InvestorAnnualReport;
       'investor.annual-returns': InvestorAnnualReturns;
       'investor.board-tab': InvestorBoardTab;
+      'investor.code-conduct-document-data': InvestorCodeConductDocumentData;
       'investor.disclosure-document-link': InvestorDisclosureDocumentLink;
+      'investor.disclouser-intro-data': InvestorDisclouserIntroData;
       'investor.dividend-history-section': InvestorDividendHistorySection;
       'investor.dividend-tds-document-card': InvestorDividendTdsDocumentCard;
       'investor.document-card': InvestorDocumentCard;
@@ -1573,6 +2254,7 @@ declare module '@strapi/strapi' {
       'investor.governance-link-card': InvestorGovernanceLinkCard;
       'investor.integrated-report-card': InvestorIntegratedReportCard;
       'investor.investor-tips-shared-section-content': InvestorInvestorTipsSharedSectionContent;
+      'investor.langauge-pdf': InvestorLangaugePdf;
       'investor.notice-card': InvestorNoticeCard;
       'investor.notice-document': InvestorNoticeDocument;
       'investor.nse-exchnage-data': InvestorNseExchnageData;
@@ -1590,11 +2272,28 @@ declare module '@strapi/strapi' {
       'investor.unclaimed-dividend-card': InvestorUnclaimedDividendCard;
       'media.media-kit': MediaMediaKit;
       'our-business.business-country-card': OurBusinessBusinessCountryCard;
+      'our-business.offering': OurBusinessOffering;
       'our-business.section-detail-card': OurBusinessSectionDetailCard;
+      'our-manufacturing-approach.comment-data': OurManufacturingApproachCommentData;
+      'our-manufacturing-approach.gto-section-data': OurManufacturingApproachGtoSectionData;
+      'our-manufacturing-approach.gto-tab': OurManufacturingApproachGtoTab;
+      'our-manufacturing-approach.page-intro-data': OurManufacturingApproachPageIntroData;
+      'our-manufacturing-approach.strategic-performance': OurManufacturingApproachStrategicPerformance;
+      'our-manufacturing-sites.city-address-card': OurManufacturingSitesCityAddressCard;
+      'our-manufacturing-sites.country-card-data': OurManufacturingSitesCountryCardData;
+      'our-manufacturing-sites.international-country-data': OurManufacturingSitesInternationalCountryData;
+      'our-manufacturing-sites.intro-section': OurManufacturingSitesIntroSection;
       'our-purpose.commitments': OurPurposeCommitments;
       'our-purpose.guided-frame-work': OurPurposeGuidedFrameWork;
       'our-purpose.intro-card': OurPurposeIntroCard;
       'our-purpose.treatment-card': OurPurposeTreatmentCard;
+      'our-science.comment-data': OurScienceCommentData;
+      'our-science.core-card': OurScienceCoreCard;
+      'our-science.digital-transformation-data': OurScienceDigitalTransformationData;
+      'our-science.intro-section': OurScienceIntroSection;
+      'our-science.numbers-card': OurScienceNumbersCard;
+      'our-science.numbers-card-data': OurScienceNumbersCardData;
+      'our-science.research-data': OurScienceResearchData;
       'our-story.highlight-content': OurStoryHighlightContent;
       'our-story.image-content-block': OurStoryImageContentBlock;
       'our-story.milestone-item': OurStoryMilestoneItem;
@@ -1603,12 +2302,20 @@ declare module '@strapi/strapi' {
       'our-value.core-value-card': OurValueCoreValueCard;
       'our-value.culture-principles': OurValueCulturePrinciples;
       'our-value.intro-our-value': OurValueIntroOurValue;
+      'patient-support-programs.card': PatientSupportProgramsCard;
+      'patient-support-programs.intro': PatientSupportProgramsIntro;
+      'patient-support-programs.looking-ahead': PatientSupportProgramsLookingAhead;
       'shared.cta': SharedCta;
       'shared.global-image': SharedGlobalImage;
       'shared.globalpdf': SharedGlobalpdf;
       'shared.image': SharedImage;
       'shared.image-text-cards': SharedImageTextCards;
       'shared.news-card': SharedNewsCard;
+      'shared.summary': SharedSummary;
+      'specialty.intro': SpecialtyIntro;
+      'specialty.more-info': SpecialtyMoreInfo;
+      'specialty.snapshot': SpecialtySnapshot;
+      'specialty.snapshot-section': SpecialtySnapshotSection;
       'sustainability.esg-framework-card': SustainabilityEsgFrameworkCard;
       'sustainability.esg-report': SustainabilityEsgReport;
       'sustainability.esg-section-data': SustainabilityEsgSectionData;

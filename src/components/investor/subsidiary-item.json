@@ -19,6 +19,20 @@
     "isActive": {
       "type": "boolean",
       "default": true
+    },
+    "PdfTitle": {
+      "type": "string",
+      "default": "AnnualReturns"
+    },
+    "AnnualReturnsPdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

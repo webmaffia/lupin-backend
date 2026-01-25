@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_our_manufacturing_sites_intro_sections",
+  "info": {
+    "displayName": "IntroSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

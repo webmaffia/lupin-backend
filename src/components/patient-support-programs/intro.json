@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_patient_support_programs_intros",
+  "info": {
+    "displayName": "Intro"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

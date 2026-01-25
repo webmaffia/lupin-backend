@@ -20,6 +20,9 @@
     },
     "Description": {
       "type": "string"
+    },
+    "Suffix": {
+      "type": "string"
     }
   },
   "config": {}

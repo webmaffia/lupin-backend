@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_generics_our_inhalation_businesses",
+  "info": {
+    "displayName": "Our Inhalation Business"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

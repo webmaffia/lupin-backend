@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_our_business_offerings",
+  "info": {
+    "displayName": "Offering"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_investor_langauge_pdfs",
+  "info": {
+    "displayName": "LangaugePdf"
+  },
+  "options": {},
+  "attributes": {
+    "LangaugePdfSection": {
+      "type": "component",
+      "component": "investor.pdfblock",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

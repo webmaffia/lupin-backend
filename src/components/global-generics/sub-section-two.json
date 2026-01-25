@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_generics_sub_section_twos",
+  "info": {
+    "displayName": "Sub Section Two"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

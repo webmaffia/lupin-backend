@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_our_science_core_cards",
+  "info": {
+    "displayName": "CoreCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ImageSvg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Svg_position": {
+      "type": "enumeration",
+      "enum": [
+        "Top",
+        "Bottom"
+      ]
+    }
+  },
+  "config": {}
+}

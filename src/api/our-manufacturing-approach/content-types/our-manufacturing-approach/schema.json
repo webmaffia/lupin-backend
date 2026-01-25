@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_manufacturing_approaches",
+  "info": {
+    "singularName": "our-manufacturing-approach",
+    "pluralName": "our-manufacturing-approaches",
+    "displayName": "Our Manufacturing Approach"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopBanner": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "PageIntroSection": {
+      "type": "component",
+      "component": "our-manufacturing-approach.page-intro-data",
+      "repeatable": false
+    },
+    "CommentSection": {
+      "type": "component",
+      "component": "our-manufacturing-approach.comment-data",
+      "repeatable": false
+    },
+    "StrategicPerformanceAreaSection": {
+      "type": "component",
+      "component": "our-manufacturing-approach.strategic-performance",
+      "repeatable": false
+    },
+    "GtoStructureSection": {
+      "type": "component",
+      "component": "our-manufacturing-approach.gto-section-data",
+      "repeatable": false
+    }
+  }
+}

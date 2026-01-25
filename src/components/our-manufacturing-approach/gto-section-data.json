@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_our_manufacturing_approach_gto_section_data",
+  "info": {
+    "displayName": "GtoSectionData"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "PetalImageSvg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "GtoStructureSection": {
+      "type": "component",
+      "component": "our-manufacturing-approach.gto-tab",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

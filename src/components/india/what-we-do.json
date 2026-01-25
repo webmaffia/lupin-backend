@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_india_what_we_dos",
+  "info": {
+    "displayName": "What We Do"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "ourDigitalInitiatives": {
+      "type": "component",
+      "component": "india.our-digital-initiatives",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

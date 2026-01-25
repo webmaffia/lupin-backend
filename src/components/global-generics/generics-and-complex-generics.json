@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_generics_generics_and_complex_generics",
+  "info": {
+    "displayName": "Generics And Complex Generics"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "subSectionOne": {
+      "type": "component",
+      "component": "global-generics.sub-section-one",
+      "repeatable": false
+    },
+    "subSectionTwo": {
+      "type": "component",
+      "component": "global-generics.sub-section-two",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

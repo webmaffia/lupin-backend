@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "specialties",
+  "info": {
+    "singularName": "specialty",
+    "pluralName": "specialties",
+    "displayName": "Specialty"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "intro": {
+      "type": "component",
+      "component": "specialty.intro",
+      "repeatable": false
+    },
+    "snapshotSection": {
+      "type": "component",
+      "component": "specialty.snapshot-section",
+      "repeatable": false
+    }
+  }
+}

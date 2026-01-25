@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_our_science_comment_data",
+  "info": {
+    "displayName": "CommentData"
+  },
+  "options": {},
+  "attributes": {
+    "ParagarphData": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

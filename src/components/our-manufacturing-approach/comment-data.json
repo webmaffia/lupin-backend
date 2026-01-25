@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_our_manufacturing_approach_comment_data",
+  "info": {
+    "displayName": "CommentData"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "richtext"
+    },
+    "ParagraphDescription": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

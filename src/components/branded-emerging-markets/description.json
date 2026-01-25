@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_branded_emerging_markets_descriptions",
+  "info": {
+    "displayName": "Description"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

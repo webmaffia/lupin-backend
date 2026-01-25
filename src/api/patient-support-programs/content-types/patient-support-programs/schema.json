@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "patient_support_programs_p",
+  "info": {
+    "singularName": "patient-support-programs",
+    "pluralName": "patient-support-programs-p",
+    "displayName": "Patient Support Programs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "intro": {
+      "type": "component",
+      "component": "patient-support-programs.intro",
+      "repeatable": false
+    },
+    "card": {
+      "type": "component",
+      "component": "patient-support-programs.card",
+      "repeatable": true
+    },
+    "lookingAhead": {
+      "type": "component",
+      "component": "patient-support-programs.looking-ahead",
+      "repeatable": false
+    }
+  }
+}

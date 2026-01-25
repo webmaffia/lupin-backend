@@ -16,9 +16,9 @@
       "component": "shared.image",
       "repeatable": false
     },
-    "CodeOfConductDocumentsSection": {
+    "DocumentSection": {
       "type": "component",
-      "component": "investor.pdfblock",
+      "component": "investor.code-conduct-document-data",
       "repeatable": true
     }
   }

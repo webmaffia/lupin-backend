@@ -21,7 +21,7 @@
         "audios"
       ]
     },
-    "VideoUrl": {
+    "PosterImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

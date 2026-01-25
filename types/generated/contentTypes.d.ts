@@ -470,6 +470,41 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAlliedBusinessAlliedBusiness
+  extends Struct.SingleTypeSchema {
+  collectionName: 'allied_businesses_p';
+  info: {
+    displayName: 'Allied Business';
+    pluralName: 'allied-businesses-p';
+    singularName: 'allied-business';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business: Schema.Attribute.Component<'allied-business.business', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    intro: Schema.Attribute.Component<'allied-business.intro', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::allied-business.allied-business'
+    > &
+      Schema.Attribute.Private;
+    lookingAhead: Schema.Attribute.Component<
+      'allied-business.looking-ahead',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAnalystCoverageAnalystCoverage
   extends Struct.SingleTypeSchema {
   collectionName: 'analyst_coverages';
@@ -520,6 +555,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     excerpt: Schema.Attribute.RichText;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -530,7 +566,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     publishedOn: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -564,6 +600,47 @@ export interface ApiAwardRecognitionAwardRecognition
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandedEmergingMarketsBrandedEmergingMarkets
+  extends Struct.SingleTypeSchema {
+  collectionName: 'branded_emerging_markets_p';
+  info: {
+    displayName: 'Branded Emerging Markets';
+    pluralName: 'branded-emerging-markets-p';
+    singularName: 'branded-emerging-markets';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<
+      'branded-emerging-markets.description',
+      false
+    >;
+    globalInstitutionalBusiness: Schema.Attribute.Component<
+      'branded-emerging-markets.global-institutional-business',
+      false
+    >;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::branded-emerging-markets.branded-emerging-markets'
+    > &
+      Schema.Attribute.Private;
+    markets: Schema.Attribute.Component<
+      'branded-emerging-markets.markets',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -611,13 +688,13 @@ export interface ApiCodeOfConductCodeOfConduct extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    CodeOfConductDocumentsSection: Schema.Attribute.Component<
-      'investor.pdfblock',
-      true
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DocumentSection: Schema.Attribute.Component<
+      'investor.code-conduct-document-data',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -632,50 +709,10 @@ export interface ApiCodeOfConductCodeOfConduct extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiCommitteePageCommitteePage
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'committee_pages';
-  info: {
-    displayName: 'Committee Page';
-    pluralName: 'committee-pages';
-    singularName: 'committee-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    CommitteeCategory: Schema.Attribute.Enumeration<
-      ['Strategy Committee', 'Audit Committee']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Designation: Schema.Attribute.String;
-    DetailDescription: Schema.Attribute.RichText;
-    isActive: Schema.Attribute.Boolean;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::committee-page.committee-page'
-    > &
-      Schema.Attribute.Private;
-    MemberImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    MemberName: Schema.Attribute.String;
-    Pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'MemberName'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiCommitteeCommittee extends Struct.SingleTypeSchema {
   collectionName: 'committees';
   info: {
-    displayName: 'CommitteeBanner';
+    displayName: 'Committee';
     pluralName: 'committees';
     singularName: 'committee';
   };
@@ -920,6 +957,51 @@ export interface ApiFinancialFinancial extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGlobalGenericsGlobalGenerics
+  extends Struct.SingleTypeSchema {
+  collectionName: 'global_generics_p';
+  info: {
+    displayName: 'Global Generics';
+    pluralName: 'global-generics-p';
+    singularName: 'global-generics';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<
+      'global-generics.description',
+      false
+    >;
+    genericsAndComplexGenerics: Schema.Attribute.Component<
+      'global-generics.generics-and-complex-generics',
+      false
+    >;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-generics.global-generics'
+    > &
+      Schema.Attribute.Private;
+    ourInhalationBusiness: Schema.Attribute.Component<
+      'global-generics.our-inhalation-business',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    regionalPresence: Schema.Attribute.Component<
+      'global-generics.regional-presence',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalPresenceGlobalPresence
   extends Struct.SingleTypeSchema {
   collectionName: 'global_presences';
@@ -950,49 +1032,6 @@ export interface ApiGlobalPresenceGlobalPresence
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiGlobalTechnicalOperationGlobalTechnicalOperation
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'global_technical_operations';
-  info: {
-    displayName: 'Global Technical Operation';
-    pluralName: 'global-technical-operations';
-    singularName: 'global-technical-operation';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    CommentDescription: Schema.Attribute.Blocks;
-    CommentHeading: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    GTOStructure: Schema.Attribute.Component<
-      'global-technical-operation.gto-structure-card',
-      true
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::global-technical-operation.global-technical-operation'
-    > &
-      Schema.Attribute.Private;
-    PageIntroSection: Schema.Attribute.Component<
-      'global-technical-operation.page-intro-section',
-      false
-    >;
-    PerformanceAreas: Schema.Attribute.Component<
-      'global-technical-operation.performance-area-card',
-      true
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1067,6 +1106,42 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiIndiaIndia extends Struct.SingleTypeSchema {
+  collectionName: 'indias';
+  info: {
+    displayName: 'India';
+    pluralName: 'indias';
+    singularName: 'india';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    IndiaAtAGlance: Schema.Attribute.Component<
+      'india.india-at-a-glance',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::india.india'> &
+      Schema.Attribute.Private;
+    overview: Schema.Attribute.Component<'india.overview', false>;
+    patientSupportPrograms: Schema.Attribute.Component<
+      'india.patient-support-programs',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    therapies: Schema.Attribute.Component<'india.therapies', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WhatWeDo: Schema.Attribute.Component<'india.what-we-do', false>;
+  };
+}
+
 export interface ApiInvestorFaqInvestorFaq extends Struct.SingleTypeSchema {
   collectionName: 'investor_faqs';
   info: {
@@ -1111,6 +1186,10 @@ export interface ApiInvestorRegulationDisclosureInvestorRegulationDisclosure
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DisclosureIntroSection: Schema.Attribute.Component<
+      'investor.disclouser-intro-data',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1200,35 +1279,6 @@ export interface ApiInvestorsUpdateInvestorsUpdate
   };
 }
 
-export interface ApiLeaderPageBannerLeaderPageBanner
-  extends Struct.SingleTypeSchema {
-  collectionName: 'leader_page_banners';
-  info: {
-    displayName: 'Leader Page Banner';
-    pluralName: 'leader-page-banners';
-    singularName: 'leader-page-banner';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::leader-page-banner.leader-page-banner'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
   collectionName: 'leaders';
   info: {
@@ -1255,9 +1305,6 @@ export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
     EducationDetail: Schema.Attribute.RichText;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     LeaderName: Schema.Attribute.String;
-    LeadershipType: Schema.Attribute.Enumeration<
-      ['Board', 'StrategyCommittee', 'AuditCommittee']
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1285,13 +1332,12 @@ export interface ApiLeaderLeader extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMediaCoverageBannerMediaCoverageBanner
-  extends Struct.SingleTypeSchema {
-  collectionName: 'media_coverage_banners';
+export interface ApiLeadershipLeadership extends Struct.SingleTypeSchema {
+  collectionName: 'leaderships';
   info: {
-    displayName: 'Media Coverage Banner';
-    pluralName: 'media-coverage-banners';
-    singularName: 'media-coverage-banner';
+    displayName: 'Leadership';
+    pluralName: 'leaderships';
+    singularName: 'leadership';
   };
   options: {
     draftAndPublish: true;
@@ -1303,39 +1349,7 @@ export interface ApiMediaCoverageBannerMediaCoverageBanner
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::media-coverage-banner.media-coverage-banner'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMediaKitMediaKit extends Struct.SingleTypeSchema {
-  collectionName: 'media_kits';
-  info: {
-    displayName: 'Media Kit';
-    pluralName: 'media-kits';
-    singularName: 'media-kit';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    DownloadableAssetsSection: Schema.Attribute.Component<
-      'media.media-kit',
-      true
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::media-kit.media-kit'
+      'api::leadership.leadership'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1447,7 +1461,7 @@ export interface ApiOtherStatutoryInformationOtherStatutoryInformation
   };
 }
 
-export interface ApiOurBusinessOurBusiness extends Struct.CollectionTypeSchema {
+export interface ApiOurBusinessOurBusiness extends Struct.SingleTypeSchema {
   collectionName: 'our_businesses';
   info: {
     displayName: 'Our Business';
@@ -1458,31 +1472,107 @@ export interface ApiOurBusinessOurBusiness extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BrandName: Schema.Attribute.String;
-    CountryDetails: Schema.Attribute.Component<
-      'our-business.business-country-card',
-      true
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.image', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::our-business.our-business'
     > &
       Schema.Attribute.Private;
-    PageIntroSection: Schema.Attribute.RichText;
+    Offering: Schema.Attribute.Component<'our-business.offering', true>;
     publishedAt: Schema.Attribute.DateTime;
-    SectionDetail: Schema.Attribute.Component<
-      'our-business.section-detail-card',
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurManufacturingApproachOurManufacturingApproach
+  extends Struct.SingleTypeSchema {
+  collectionName: 'our_manufacturing_approaches';
+  info: {
+    displayName: 'Our Manufacturing Approach';
+    pluralName: 'our-manufacturing-approaches';
+    singularName: 'our-manufacturing-approach';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CommentSection: Schema.Attribute.Component<
+      'our-manufacturing-approach.comment-data',
       false
     >;
-    ShortSummary: Schema.Attribute.RichText;
-    slug: Schema.Attribute.UID<'BrandName'>;
-    ThumbnailImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GtoStructureSection: Schema.Attribute.Component<
+      'our-manufacturing-approach.gto-section-data',
+      false
     >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-manufacturing-approach.our-manufacturing-approach'
+    > &
+      Schema.Attribute.Private;
+    PageIntroSection: Schema.Attribute.Component<
+      'our-manufacturing-approach.page-intro-data',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    StrategicPerformanceAreaSection: Schema.Attribute.Component<
+      'our-manufacturing-approach.strategic-performance',
+      false
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurManufacturingSiteOurManufacturingSite
+  extends Struct.SingleTypeSchema {
+  collectionName: 'our_manufacturing_sites';
+  info: {
+    displayName: 'Our Manufacturing Site';
+    pluralName: 'our-manufacturing-sites';
+    singularName: 'our-manufacturing-site';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CountryAddressSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.country-card-data',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    IntroSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.intro-section',
+      false
+    >;
+    LatamSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.international-country-data',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-manufacturing-site.our-manufacturing-site'
+    > &
+      Schema.Attribute.Private;
+    NorthAmericaSection: Schema.Attribute.Component<
+      'our-manufacturing-sites.international-country-data',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1528,6 +1618,59 @@ export interface ApiOurPurposeOurPurpose extends Struct.SingleTypeSchema {
       'our-purpose.treatment-card',
       false
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurScienceOurScience extends Struct.SingleTypeSchema {
+  collectionName: 'our_sciences';
+  info: {
+    displayName: 'Our Science';
+    pluralName: 'our-sciences';
+    singularName: 'our-science';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContentSection: Schema.Attribute.Component<
+      'our-science.comment-data',
+      false
+    >;
+    CoreSection: Schema.Attribute.Component<'our-science.core-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DigitalTransformationSection: Schema.Attribute.Component<
+      'our-science.digital-transformation-data',
+      false
+    >;
+    IntroSection: Schema.Attribute.Component<
+      'our-science.intro-section',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-science.our-science'
+    > &
+      Schema.Attribute.Private;
+    NumberHighLightsSection: Schema.Attribute.Component<
+      'our-science.numbers-card-data',
+      false
+    >;
+    ParaGraphSection: Schema.Attribute.Component<
+      'our-science.comment-data',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    ResearchDevelopmentSection: Schema.Attribute.Component<
+      'our-science.research-data',
+      false
+    >;
+    TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1614,29 +1757,35 @@ export interface ApiOurValueOurValue extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPerspectiveBannerPerspectiveBanner
+export interface ApiPatientSupportProgramsPatientSupportPrograms
   extends Struct.SingleTypeSchema {
-  collectionName: 'perspective_banners';
+  collectionName: 'patient_support_programs_p';
   info: {
-    displayName: 'Perspective Banner';
-    pluralName: 'perspective-banners';
-    singularName: 'perspective-banner';
+    displayName: 'Patient Support Programs';
+    pluralName: 'patient-support-programs-p';
+    singularName: 'patient-support-programs';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    card: Schema.Attribute.Component<'patient-support-programs.card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    intro: Schema.Attribute.Component<'patient-support-programs.intro', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::perspective-banner.perspective-banner'
+      'api::patient-support-programs.patient-support-programs'
     > &
       Schema.Attribute.Private;
+    lookingAhead: Schema.Attribute.Component<
+      'patient-support-programs.looking-ahead',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1667,35 +1816,6 @@ export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
       'investor.pdfblock',
       true
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPressReleaseBannerPressReleaseBanner
-  extends Struct.SingleTypeSchema {
-  collectionName: 'press_release_banners';
-  info: {
-    displayName: 'Press Release Banner';
-    pluralName: 'press-release-banners';
-    singularName: 'press-release-banner';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::press-release-banner.press-release-banner'
-    > &
-      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     TopBanner: Schema.Attribute.Component<'shared.image', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1999,6 +2119,39 @@ export interface ApiShareholdingPatternShareholdingPattern
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpecialtySpecialty extends Struct.SingleTypeSchema {
+  collectionName: 'specialties';
+  info: {
+    displayName: 'Specialty';
+    pluralName: 'specialties';
+    singularName: 'specialty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    intro: Schema.Attribute.Component<'specialty.intro', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::specialty.specialty'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    snapshotSection: Schema.Attribute.Component<
+      'specialty.snapshot-section',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2714,12 +2867,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::allied-business.allied-business': ApiAlliedBusinessAlliedBusiness;
       'api::analyst-coverage.analyst-coverage': ApiAnalystCoverageAnalystCoverage;
       'api::article.article': ApiArticleArticle;
       'api::award-recognition.award-recognition': ApiAwardRecognitionAwardRecognition;
+      'api::branded-emerging-markets.branded-emerging-markets': ApiBrandedEmergingMarketsBrandedEmergingMarkets;
       'api::category.category': ApiCategoryCategory;
       'api::code-of-conduct.code-of-conduct': ApiCodeOfConductCodeOfConduct;
-      'api::committee-page.committee-page': ApiCommitteePageCommitteePage;
       'api::committee.committee': ApiCommitteeCommittee;
       'api::community.community': ApiCommunityCommunity;
       'api::contact-us.contact-us': ApiContactUsContactUs;
@@ -2727,28 +2881,29 @@ declare module '@strapi/strapi' {
       'api::employee-stock-option-scheme.employee-stock-option-scheme': ApiEmployeeStockOptionSchemeEmployeeStockOptionScheme;
       'api::ethics-and-compliance.ethics-and-compliance': ApiEthicsAndComplianceEthicsAndCompliance;
       'api::financial.financial': ApiFinancialFinancial;
+      'api::global-generics.global-generics': ApiGlobalGenericsGlobalGenerics;
       'api::global-presence.global-presence': ApiGlobalPresenceGlobalPresence;
-      'api::global-technical-operation.global-technical-operation': ApiGlobalTechnicalOperationGlobalTechnicalOperation;
       'api::global-technical-presence.global-technical-presence': ApiGlobalTechnicalPresenceGlobalTechnicalPresence;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::india.india': ApiIndiaIndia;
       'api::investor-faq.investor-faq': ApiInvestorFaqInvestorFaq;
       'api::investor-regulation-disclosure.investor-regulation-disclosure': ApiInvestorRegulationDisclosureInvestorRegulationDisclosure;
       'api::investor.investor': ApiInvestorInvestor;
       'api::investors-update.investors-update': ApiInvestorsUpdateInvestorsUpdate;
-      'api::leader-page-banner.leader-page-banner': ApiLeaderPageBannerLeaderPageBanner;
       'api::leader.leader': ApiLeaderLeader;
-      'api::media-coverage-banner.media-coverage-banner': ApiMediaCoverageBannerMediaCoverageBanner;
-      'api::media-kit.media-kit': ApiMediaKitMediaKit;
+      'api::leadership.leadership': ApiLeadershipLeadership;
       'api::news-and-event.news-and-event': ApiNewsAndEventNewsAndEvent;
       'api::notice.notice': ApiNoticeNotice;
       'api::other-statutory-information.other-statutory-information': ApiOtherStatutoryInformationOtherStatutoryInformation;
       'api::our-business.our-business': ApiOurBusinessOurBusiness;
+      'api::our-manufacturing-approach.our-manufacturing-approach': ApiOurManufacturingApproachOurManufacturingApproach;
+      'api::our-manufacturing-site.our-manufacturing-site': ApiOurManufacturingSiteOurManufacturingSite;
       'api::our-purpose.our-purpose': ApiOurPurposeOurPurpose;
+      'api::our-science.our-science': ApiOurScienceOurScience;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::our-value.our-value': ApiOurValueOurValue;
-      'api::perspective-banner.perspective-banner': ApiPerspectiveBannerPerspectiveBanner;
+      'api::patient-support-programs.patient-support-programs': ApiPatientSupportProgramsPatientSupportPrograms;
       'api::policy.policy': ApiPolicyPolicy;
-      'api::press-release-banner.press-release-banner': ApiPressReleaseBannerPressReleaseBanner;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-geography.product-geography': ApiProductGeographyProductGeography;
       'api::product-therapy.product-therapy': ApiProductTherapyProductTherapy;
@@ -2758,6 +2913,7 @@ declare module '@strapi/strapi' {
       'api::saksham-niveshak.saksham-niveshak': ApiSakshamNiveshakSakshamNiveshak;
       'api::share-price.share-price': ApiSharePriceSharePrice;
       'api::shareholding-pattern.shareholding-pattern': ApiShareholdingPatternShareholdingPattern;
+      'api::specialty.specialty': ApiSpecialtySpecialty;
       'api::subsidiary.subsidiary': ApiSubsidiarySubsidiary;
       'api::sustainability.sustainability': ApiSustainabilitySustainability;
       'api::tips-for-shareholder.tips-for-shareholder': ApiTipsForShareholderTipsForShareholder;

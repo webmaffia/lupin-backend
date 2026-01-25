@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_our_manufacturing_sites_city_address_cards",
+  "info": {
+    "displayName": "CityAddressCard"
+  },
+  "options": {},
+  "attributes": {
+    "CityName": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "AddressDetail": {
+      "type": "richtext"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

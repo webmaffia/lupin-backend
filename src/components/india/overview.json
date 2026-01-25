@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_india_overviews",
+  "info": {
+    "displayName": "Overview"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

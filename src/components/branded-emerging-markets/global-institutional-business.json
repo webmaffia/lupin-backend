@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_branded_emerging_markets_global_institutional_businesses",
+  "info": {
+    "displayName": "Global Institutional Business"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

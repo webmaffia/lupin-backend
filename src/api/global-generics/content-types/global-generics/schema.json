@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_generics_p",
+  "info": {
+    "singularName": "global-generics",
+    "pluralName": "global-generics-p",
+    "displayName": "Global Generics"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "global-generics.description",
+      "repeatable": false
+    },
+    "genericsAndComplexGenerics": {
+      "type": "component",
+      "component": "global-generics.generics-and-complex-generics",
+      "repeatable": false
+    },
+    "ourInhalationBusiness": {
+      "type": "component",
+      "component": "global-generics.our-inhalation-business",
+      "repeatable": false
+    },
+    "regionalPresence": {
+      "type": "component",
+      "component": "global-generics.regional-presence",
+      "repeatable": false
+    }
+  }
+}
