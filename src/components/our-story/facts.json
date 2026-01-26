@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_our_story_facts",
+  "info": {
+    "displayName": "Facts"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

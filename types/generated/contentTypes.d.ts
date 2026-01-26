@@ -1691,26 +1691,21 @@ export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DidYouKnowSection: Schema.Attribute.Component<
-      'our-story.highlight-content',
-      true
-    >;
+    didYouKnow: Schema.Attribute.Component<'our-story.did-you-know', false>;
+    hero: Schema.Attribute.Component<'shared.image', false>;
+    intro: Schema.Attribute.Component<'our-story.intro', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::our-story.our-story'
     > &
       Schema.Attribute.Private;
-    MilestonesSection: Schema.Attribute.Component<
-      'our-story.milestones-section',
+    ourMilestones: Schema.Attribute.Component<
+      'our-story.our-milestones',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    StoryIntroSection: Schema.Attribute.Component<
-      'our-story.image-content-block',
-      true
-    >;
-    TopBanner: Schema.Attribute.Component<'shared.image', false>;
+    section: Schema.Attribute.Component<'our-story.section', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

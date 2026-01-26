@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_our_story_milestones",
+  "info": {
+    "displayName": "Milestone"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

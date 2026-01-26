@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_story_years",
+  "info": {
+    "displayName": "Year"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Milestones": {
+      "type": "component",
+      "component": "our-story.milestone",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

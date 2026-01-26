@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_our_story_sections",
+  "info": {
+    "displayName": "Section"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

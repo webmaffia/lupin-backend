@@ -11,24 +11,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "TopBanner": {
+    "hero": {
       "type": "component",
       "component": "shared.image",
       "repeatable": false
     },
-    "StoryIntroSection": {
+    "intro": {
       "type": "component",
-      "component": "our-story.image-content-block",
+      "component": "our-story.intro",
+      "repeatable": false
+    },
+    "section": {
+      "type": "component",
+      "component": "our-story.section",
       "repeatable": true
     },
-    "DidYouKnowSection": {
+    "didYouKnow": {
       "type": "component",
-      "component": "our-story.highlight-content",
-      "repeatable": true
+      "component": "our-story.did-you-know",
+      "repeatable": false
     },
-    "MilestonesSection": {
+    "ourMilestones": {
       "type": "component",
-      "component": "our-story.milestones-section",
+      "component": "our-story.our-milestones",
       "repeatable": false
     }
   }

@@ -1625,65 +1625,83 @@ export interface OurScienceResearchData extends Struct.ComponentSchema {
   };
 }
 
-export interface OurStoryHighlightContent extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_highlight_contents';
+export interface OurStoryDidYouKnow extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_did_you_knows';
   info: {
-    displayName: 'HighlightContent';
+    displayName: 'Did You Know';
   };
   attributes: {
-    Description: Schema.Attribute.RichText;
-    Heading: Schema.Attribute.String;
-    isActive: Schema.Attribute.Boolean;
+    facts: Schema.Attribute.Component<'our-story.facts', true>;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface OurStoryImageContentBlock extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_image_content_blocks';
+export interface OurStoryFacts extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_facts';
   info: {
-    displayName: 'ImageContentBlock';
+    displayName: 'Facts';
   };
   attributes: {
-    Content: Schema.Attribute.RichText;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Image_Position: Schema.Attribute.Enumeration<['Left', 'Right']>;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface OurStoryMilestoneItem extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_milestone_items';
+export interface OurStoryIntro extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_intros';
   info: {
-    displayName: 'MilestoneItem';
+    displayName: 'Intro';
   };
   attributes: {
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    Title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
-export interface OurStoryMilestoneYear extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_milestone_years';
+export interface OurStoryMilestone extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_milestones';
   info: {
-    displayName: 'MilestoneYear';
+    displayName: 'Milestone';
   };
   attributes: {
-    DisplayOrder: Schema.Attribute.String;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    Milestones: Schema.Attribute.Component<'our-story.milestone-item', true>;
-    Year: Schema.Attribute.String;
+    heading: Schema.Attribute.Text;
   };
 }
 
-export interface OurStoryMilestonesSection extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_milestones_sections';
+export interface OurStoryOurMilestones extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_our_milestones';
   info: {
-    displayName: 'SectionData';
+    displayName: 'Our Milestones';
   };
   attributes: {
-    Description: Schema.Attribute.RichText;
-    Heading: Schema.Attribute.String;
-    MilestoneYear: Schema.Attribute.Component<'our-story.milestone-year', true>;
-    SectionTitle: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
+    year: Schema.Attribute.Component<'our-story.year', true>;
+  };
+}
+
+export interface OurStorySection extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_sections';
+  info: {
+    displayName: 'Section';
+  };
+  attributes: {
+    author: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    quote: Schema.Attribute.Text;
+  };
+}
+
+export interface OurStoryYear extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_years';
+  info: {
+    displayName: 'Year';
+  };
+  attributes: {
+    Milestones: Schema.Attribute.Component<'our-story.milestone', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2294,11 +2312,13 @@ declare module '@strapi/strapi' {
       'our-science.numbers-card': OurScienceNumbersCard;
       'our-science.numbers-card-data': OurScienceNumbersCardData;
       'our-science.research-data': OurScienceResearchData;
-      'our-story.highlight-content': OurStoryHighlightContent;
-      'our-story.image-content-block': OurStoryImageContentBlock;
-      'our-story.milestone-item': OurStoryMilestoneItem;
-      'our-story.milestone-year': OurStoryMilestoneYear;
-      'our-story.milestones-section': OurStoryMilestonesSection;
+      'our-story.did-you-know': OurStoryDidYouKnow;
+      'our-story.facts': OurStoryFacts;
+      'our-story.intro': OurStoryIntro;
+      'our-story.milestone': OurStoryMilestone;
+      'our-story.our-milestones': OurStoryOurMilestones;
+      'our-story.section': OurStorySection;
+      'our-story.year': OurStoryYear;
       'our-value.core-value-card': OurValueCoreValueCard;
       'our-value.culture-principles': OurValueCulturePrinciples;
       'our-value.intro-our-value': OurValueIntroOurValue;

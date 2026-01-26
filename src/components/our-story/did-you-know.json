@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_story_did_you_knows",
+  "info": {
+    "displayName": "Did You Know"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "component",
+      "component": "our-story.facts",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
